@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "terracraft0323:block/potato_tnt",
+    "side": "terracraft0323:block/potato_tnt",
+    "top": "terracraft0323:block/potato_tnt"
+  }
+}

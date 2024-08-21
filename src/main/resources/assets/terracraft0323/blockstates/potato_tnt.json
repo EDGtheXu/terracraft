@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "terracraft0323:block/potato_tnt"
+    },
+    "type=double": {
+      "model": "terracraft0323:block/potato_tnt"
+    },
+    "type=top": {
+      "model": "terracraft0323:block/potato_tnt"
+    }
+  }
+}

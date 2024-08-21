@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "terracraft0323:block/gold_melon_top",
+    "side": "terracraft0323:block/gold_melon_side"
+  }
+}

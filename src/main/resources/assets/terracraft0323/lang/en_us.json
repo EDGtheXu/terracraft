@@ -1,0 +1,193 @@
+{
+  "itemGroup.terracraft0323": "TerraCraft",
+  "itemGroup.mafish":"ma fish",
+  "item.terracraft0323.mafish": "the xu",
+  "item.terracraft0323.colliableitem": "colliableitem",
+
+  "text.autoconfig.terracraft0323.title": "Link Start!",
+
+  "text.autoconfig.terracraft0323.option.isQinNa": "isQinNa",
+  "text.autoconfig.terracraft0323.option.isLlamaSpitForever": "isLlamaSpitForever",
+  "text.autoconfig.terracraft0323.option.isGoatDashTogether": "isGoatDashTogether",
+  "text.autoconfig.terracraft0323.option.isGoatDashForever": "isGoatDashForever",
+  "text.autoconfig.terracraft0323.option.isBeeRideable": "isBeeRideable",
+  "text.autoconfig.terracraft0323.option.isNestedBoxInfinite": "isNestedBoxInfinite",
+  "text.autoconfig.terracraft0323.option.isShieldDashable": "isShieldDashable",
+  "text.autoconfig.terracraft0323.option.isBowDashable": "isBowDashable",
+  "text.autoconfig.terracraft0323.option.isSwimTripwire": "isSwimTripwire",
+  "text.autoconfig.terracraft0323.option.isSpyglassCanPin": "isSpyglassCanPin",
+  "text.autoconfig.terracraft0323.option.lead": "lead",
+  "text.autoconfig.terracraft0323.option.lead.isLeadCanLinkEveryMob": "isLeadCanLinkEveryMob",
+  "text.autoconfig.terracraft0323.option.lead.isLeadCanLinkTogether": "isLeadCanLinkTogether",
+  "text.autoconfig.terracraft0323.option.lead.breakDistance": "breakDistance",
+  "text.autoconfig.terracraft0323.option.isAlwaysEnchantable": "isAlwaysEnchantable",
+  "text.autoconfig.terracraft0323.option.isFireworkCanUseOnEntity": "isFireworkCanUseOnEntity",
+  "text.autoconfig.terracraft0323.option.isFireworkCanHitOnEntity": "isFireworkCanHitOnEntity",
+  "text.autoconfig.terracraft0323.option.isFuThrowable": "isFuThrowable",
+  "text.autoconfig.terracraft0323.option.toggleA": "toggleA",
+  "text.autoconfig.terracraft0323.option.toggleB": "toggleB",
+  "text.autoconfig.terracraft0323.option.stuff": "stuff",
+
+
+  "tooltip.mafishmod.metal_detector.tooltip": "Find valuables underground",
+  "tooltip.mafishmod.villager_item.tooltip": "Delicious",
+  "tooltip.mafishmod.ruby_stuff.tooltip": "§e",
+  "tooltip.mafishmod.vr_pen.tooltip": "Holding dye in the off-hand changes the color, and the quantity of the item in the off-hand determines the size of the square brush",
+  "tooltip.mafishmod.vr_rubber.tooltip": "The quantity of the item in the off-hand determines the size of the eraser, and holding a ruby in the off-hand clears a large area.",
+  "tooltip.mafishmod.vr_compasses.tooltip": "Draw a circle by selecting three points: the first point is the center of the circle, the second determines the radius, and the third establishes the plane.",
+
+
+  "item.terracraft0323.ruby": "Mafish",
+  "item.terracraft0323.raw_ruby": "Fired Mafish",
+  "item.terracraft0323.cool_glass": "COOL GLASS",
+  "item.terracraft0323.cool_glass2": "COOL GLASS2",
+  "item.terracraft0323.metal_detector": "Metal Detector",
+  "item.terracraft0323.tomato": "Tomato",
+  "item.terracraft0323.coal_briquette": "Coal Briquette",
+
+  "item.terracraft0323.ruby_staff": "§eMagic stuff",
+
+  "item.terracraft0323.ruby_pickaxe": "RUBY PICKAXE",
+
+  "item.terracraft0323.ruby_helmet": "Ruby Helmet",
+  "item.terracraft0323.ruby_chestplate": "Ruby Chestplate",
+  "item.terracraft0323.ruby_leggings": "Ruby Leggings",
+  "item.terracraft0323.ruby_boots": "Ruby Boots",
+
+  "block.terracraft0323.ruby_block": "RUBY_BLOCK",
+  "block.terracraft0323.raw_ruby_block": "RAW RUBY BLOCK",
+  "block.terracraft0323.white_cat_block": "WHITE CAT BLOCK",
+  "block.terracraft0323.gold_melon": "gold_melon",
+  "block.terracraft0323.potato_tnt_prepare": "potato_tnt_prepare",
+  "block.terracraft0323.potato_tnt": "potato_tnt",
+  "block.terracraft0323.gem_polishing_station": "Gem Polishing Station",
+
+  "tooltip.terracraft0323.fire_happy": "Fire Happy",
+
+
+
+
+
+  "entity.minecraft.villager.sound_master": "Soundmaster",
+
+  "itemgroup.ruby": "Ruby Tutorial Group",
+
+  "item.terracraft0323.bread_sword": "bread_sword",
+  "item.terracraft0323.bread_sword_hot": "bread_sword_hot",
+  "item.terracraft0323.bread_sword_very_hot": "bread_sword_very_hot",
+  "item.terracraft0323.tnt_ball": "TNT Ball",
+  "item.terracraft0323.stone_ball": "Stone Ball",
+  "item.terracraft0323.apple_vision_pro": "Apple Vision Pro",
+  "item.terracraft0323.fu": "FU",
+  "item.terracraft0323.iron_fake": "Tieding",
+  "item.terracraft0323.zhuge": "zhuge",
+  "item.terracraft0323.poison_sword": "poison_sword",
+  "item.terracraft0323.firework_arrow": "firework_arrow",
+  "item.terracraft0323.stargazy_pie": "stargazy_pie",
+  "item.terracraft0323.time_stop": "time_stop",
+  "item.terracraft0323.math_sword": "math_sword",
+  "item.terracraft0323.colliable": "colliable",
+  "item.terracraft0323.lightning_ball": "lightning_ball",
+  "item.terracraft0323.milk_flesh": "milk_flesh",
+  "item.terracraft0323.cheese_berger": "cheese_berger",
+  "item.terracraft0323.rtx4090": "RTX4090",
+  "item.terracraft0323.llama_item": "llama_item",
+  "item.terracraft0323.villager_item": "villager_item",
+  "item.terracraft0323.iron_golem_item": "iron_golem_item",
+  "item.terracraft0323.lightning_item": "lightning_item",
+  "item.terracraft0323.switch": "switch",
+
+  "item.terracraft0323.vr_pen": "vr_pen",
+  "item.terracraft0323.vr_rubber": "vr_rubber",
+  "item.terracraft0323.vr_ruler": "vr_ruler",
+  "item.terracraft0323.vr_compasses": "vr_compasses",
+  "item.terracraft0323.vr_magic": "vr_magic",
+  "item.terracraft0323.vr_getting_over_it": "vr_getting_over_it",
+
+
+  "enchantment.terracraft0323.z_bad_luck_of_sea": "bad_luck_of_sea",
+  "enchantment.terracraft0323.z_eight_gods_pass_sea": "eight_gods_pass_sea",
+  "enchantment.terracraft0323.z_kill_chicken_get_egg": "kill_chicken_get_egg",
+  "enchantment.terracraft0323.z_go_to_sky": "go_to_sky",
+  "enchantment.terracraft0323.z_gong_xi_fa_cai": "gong_xi_fa_cai",
+  "enchantment.terracraft0323.z_mercy": "mercy",
+  "enchantment.terracraft0323.z_kill_my_horse": "kill_my_horse",
+  "enchantment.terracraft0323.z_kill_my_horse_plus": "kill_my_horse_plus",
+  "enchantment.terracraft0323.z_hot_potato": "hot_potato",
+  "enchantment.terracraft0323.z_very_easy": "very_easy",
+  "enchantment.terracraft0323.z_reverse": "reverse",
+  "enchantment.terracraft0323.z_pay_to_play": "pay_to_play",
+  "enchantment.terracraft0323.z_fear": "fear",
+  "enchantment.terracraft0323.z_mute": "mute",
+  "enchantment.terracraft0323.z_slippery": "slippery",
+  "enchantment.terracraft0323.z_never_gonna": "never_gonna",
+  "enchantment.terracraft0323.z_resonance": "resonance",
+  "enchantment.terracraft0323.z_no_blast_protection": "no_blast_protection",
+  "enchantment.terracraft0323.z_a_leaf": "a_leaf",
+  "enchantment.terracraft0323.z_butterfly": "butterfly",
+  "enchantment.terracraft0323.z_fangsheng": "fangsheng",
+  "enchantment.terracraft0323.z_never_stop": "never_stop",
+  "enchantment.terracraft0323.z_bow_left": "bow_left",
+  "enchantment.terracraft0323.z_super_projectile_protection": "super_projectile_protection",
+  "enchantment.terracraft0323.z_sticky": "sticky",
+  "enchantment.terracraft0323.z_one_step_ten_line": "one_step_ten_line",
+
+
+
+  "key.category.terracraft0323.tutorial": "Mafish Mod",
+  "key.terracraft0323.throw_item": "throw_item",
+
+  "effect.terracraft0323.ironman": "Link Start",
+  "effect.terracraft0323.flower_effect": "flower_effect",
+  "effect.terracraft0323.teleport_effect": "teleport_effect",
+  "effect.terracraft0323.spider_effect": "spider_effect",
+  "effect.terracraft0323.sheep_effect": "sheep_effect",
+  "effect.terracraft0323.antidote_effect": "antidote_effect",
+
+  "item.minecraft.potion.effect.flower_potion": "flower_potion",
+  "item.minecraft.splash_potion.effect.flower_potion": "Splash flower_potion",
+  "item.minecraft.lingering_potion.effect.flower_potion": "Lingering flower_potion",
+  "item.minecraft.tipped_arrow.effect.flower_potion": "flower_potion",
+
+  "item.minecraft.potion.effect.teleport_potion": "teleport_potion",
+  "item.minecraft.splash_potion.effect.teleport_potion": "Splash teleport_potion",
+  "item.minecraft.lingering_potion.effect.teleport_potion": "Lingering teleport_potion",
+  "item.minecraft.tipped_arrow.effect.teleport_potion": "teleport_potion",
+
+  "item.minecraft.potion.effect.spider_potion": "spider_potion",
+  "item.minecraft.splash_potion.effect.spider_potion": "Splash spider_potion",
+  "item.minecraft.lingering_potion.effect.spider_potion": "Lingering spider_potion",
+  "item.minecraft.tipped_arrow.effect.spider_potion": "spider_potion",
+
+  "item.minecraft.potion.effect.sheep_potion": "sheep_potion",
+  "item.minecraft.splash_potion.effect.sheep_potion": "Splash sheep_potion",
+  "item.minecraft.lingering_potion.effect.sheep_potion": "Lingering sheep_potion",
+  "item.minecraft.tipped_arrow.effect.sheep_potion": "sheep_potion",
+
+  "item.minecraft.potion.effect.antidote_potion": "antidote_potion",
+  "item.minecraft.splash_potion.effect.antidote_potion": "Splash antidote_potion",
+  "item.minecraft.lingering_potion.effect.antidote_potion": "Lingering antidote_potion",
+  "item.minecraft.tipped_arrow.effect.antidote_potion": "antidote_potion",
+
+
+
+
+  "menu.title.terraInventory": "terra bag",
+  "item.terracraft0323.main_menu": "main menu",
+
+  "item.terracraft0323.mod_menu": "mod menu",
+
+  "item.terracraft0323.sword.yong_ye_ren": "yong ye ren",
+  "item.terracraft0323.sword.tai_la_ren": "tai la ren",
+  "item.terracraft0323.sword.ice_sword": "ice_sword",
+
+  "item.terracraft0323.bow.shen_sheng_lian_nu":"shen sheng lian nu",
+
+
+  "item.terracraft0323.jewelry.tian_jie_xing_pan": "tian jie xing pan",
+  "item.terracraft0323.jewelry.tai_la_xue": "tai la xue",
+  "item.terracraft0323.jewelry.jin_ma_zhang": "jin ma zhang",
+
+  "entity.terracraft0323.ke_yan":"ke su lu zhi yan"
+
+}

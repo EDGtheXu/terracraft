@@ -1,0 +1,6 @@
+{
+    "parent": "terracraft0323:item/zhuge",
+    "textures": {
+        "layer0": "terracraft0323:item/zhuge_arrow"
+    }
+}

@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "terracraft0323:item/ruby_staff_3d"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "terracraft0323:item/ruby_staff_2d"
+		},
+		"ground": {
+			"parent": "terracraft0323:item/ruby_staff_2d"
+		},
+		"fixed": {
+			"parent": "terracraft0323:item/ruby_staff_2d"
+		}
+	}
+}
