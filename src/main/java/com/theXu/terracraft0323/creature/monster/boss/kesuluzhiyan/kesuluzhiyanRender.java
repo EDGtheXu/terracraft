@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -23,7 +23,7 @@ public class kesuluzhiyanRender extends EntityRenderer {
 
     @Override
     public ResourceLocation getTextureLocation(Entity entity) {
-        return ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"textures/creature/kesuluzhiyan.png");
+        return ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"textures/creature/kesuluzhiyan.png");
     }
 
     @Override

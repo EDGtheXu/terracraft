@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ui.mainMenu;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 
 public class mainMenuScreen extends AbstractContainerScreen<mainMenu> {
-    private final ResourceLocation OBSIDIAN_CONTAINER_RESOURCE = ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "textures/container/null.png");
+    private final ResourceLocation OBSIDIAN_CONTAINER_RESOURCE = ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "textures/container/null.png");
     //图片的大小
     private final int textureWidth = 176;
     private final int textureHeight = 166;

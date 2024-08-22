@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.datagen;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.enchantment.ModEnchantments;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
@@ -21,7 +21,7 @@ public class ModDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesPro
 
     // 构造函数，初始化ModDatapackBuiltinEntriesProvider实例
     public ModDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Set.of(NeoMafishMod.MODID));
+        super(output, registries, BUILDER, Set.of(NeoMod.MODID));
     }
 
 }

@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ui.mainMenu;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
@@ -13,7 +13,7 @@ public class mainMenuInventorySaver extends SavedData {
 
     public ItemStackHandler itemHandler;
     public int ti;
-    private static final String storeName = NeoMafishMod.MODID + "_mainMenuInventory";
+    private static final String storeName = NeoMod.MODID + "_mainMenuInventory";
 
 
     public mainMenuInventorySaver(){

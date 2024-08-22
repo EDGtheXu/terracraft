@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.effect.move;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -14,7 +14,7 @@ public class fastMove extends MobEffect {
 
         addAttributeModifier(
                 Attributes.MOVEMENT_SPEED,
-                ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,name),
+                ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,name),
                 rate,
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
         );

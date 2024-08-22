@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.datagen.recipe;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -64,6 +64,6 @@ public class ModRecipe extends RecipeProvider {
     ) {
         SimpleCookingRecipeBuilder.generic(Ingredient.of(material), RecipeCategory.FOOD, result, experience, cookingTime, cookingSerializer, recipeFactory)
                 .unlockedBy(getHasName(material), has(material))
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,getItemName(result) + "_from_" + cookingMethod));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,getItemName(result) + "_from_" + cookingMethod));
     }
 }

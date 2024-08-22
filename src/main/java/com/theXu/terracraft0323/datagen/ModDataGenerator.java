@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.datagen;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.datagen.item.tags.ModBlockTagsProvider;
 import com.theXu.terracraft0323.datagen.item.tags.ModEnchantmentTagsProvider;
 import com.theXu.terracraft0323.datagen.item.tags.ModtemTagsProvider;
@@ -18,7 +18,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.concurrent.CompletableFuture;
 
 // 用于注册数据生成器的类，该类通过EventBusSubscriber注解自动注册到MOD总线上
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = NeoMafishMod.MODID)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = NeoMod.MODID)
 public class ModDataGenerator {
     // 订阅GatherDataEvent事件，当数据收集事件触发时执行该方法
     @SubscribeEvent
@@ -33,9 +33,9 @@ public class ModDataGenerator {
 
 
         generator.addProvider(event.includeServer(),new ModRecipe(output,lookupProvider));
-        TagsProvider<Block> tagsprovider4 = generator.addProvider(event.includeServer(),new ModBlockTagsProvider(output,lookupProvider,NeoMafishMod.MODID,existingFileHelper));
+        TagsProvider<Block> tagsprovider4 = generator.addProvider(event.includeServer(),new ModBlockTagsProvider(output,lookupProvider, NeoMod.MODID,existingFileHelper));
         //
-        generator.addProvider(event.includeServer(),new ModtemTagsProvider(output,lookupProvider,tagsprovider4.contentsGetter(),NeoMafishMod.MODID,existingFileHelper));
+        generator.addProvider(event.includeServer(),new ModtemTagsProvider(output,lookupProvider,tagsprovider4.contentsGetter(), NeoMod.MODID,existingFileHelper));
         generator.addProvider(event.includeServer(),new ModEnchantmentTagsProvider(output,lookupProvider,existingFileHelper));
     }
 }

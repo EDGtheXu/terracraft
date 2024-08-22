@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.entity.ModEntities;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -14,7 +14,7 @@ import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword_waveRender;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyanRender;
 import com.theXu.terracraft0323.item.terraSword.xingNu.xing_nu_waveRender;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = NeoMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class registerRenderEvent {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event)

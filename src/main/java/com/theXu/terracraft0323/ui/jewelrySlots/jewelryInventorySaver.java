@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ui.jewelrySlots;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -16,7 +16,7 @@ public class jewelryInventorySaver extends SavedData {
     public ItemStackHandler itemHandler;
 
     public int ti;
-    private static final String storeName = NeoMafishMod.MODID + "_jewelryInventory";
+    private static final String storeName = NeoMod.MODID + "_jewelryInventory";
 
 
     public jewelryInventorySaver(){

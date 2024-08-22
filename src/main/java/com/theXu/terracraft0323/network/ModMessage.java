@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.network.packet.C2S.*;
 import com.theXu.terracraft0323.network.packet.S2C.BellSoundS2CPacket;
 import com.theXu.terracraft0323.network.packet.S2C.NeverGonnaS2CPacket;
@@ -10,11 +10,11 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID,bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = NeoMod.MODID,bus = EventBusSubscriber.Bus.MOD)
 public class ModMessage {
     @SubscribeEvent
     public static void register(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar(NeoMafishMod.MODID);
+        final PayloadRegistrar registrar = event.registrar(NeoMod.MODID);
         registrar.playBidirectional(
                 ThrowPowerC2SPacket.TYPE,
                 ThrowPowerC2SPacket.STREAM_CODEC,

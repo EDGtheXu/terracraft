@@ -1,7 +1,7 @@
 package com.theXu.terracraft0323.enchantment;
 
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -497,6 +497,6 @@ public class ModEnchantments {
     // 创建附魔资源键的方法
     private static ResourceKey<Enchantment> key(String name)
     {
-        return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,name));
+        return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,name));
     }
 }

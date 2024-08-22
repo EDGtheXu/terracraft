@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -15,7 +15,7 @@ import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import org.lwjgl.glfw.GLFW;
 
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = NeoMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.GAME)
 @OnlyIn(Dist.CLIENT)
 public class KeyInputHandler {
 
@@ -68,7 +68,7 @@ public class KeyInputHandler {
         }
     }
 
-    @EventBusSubscriber(modid = NeoMafishMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = NeoMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.MOD)
     public static class KeyRegistries{
         @SubscribeEvent
         public static void register(RegisterKeyMappingsEvent event){

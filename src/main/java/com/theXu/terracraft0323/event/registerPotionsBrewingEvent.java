@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.potion.ModPotions;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -9,7 +9,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID)
+@EventBusSubscriber(modid = NeoMod.MODID)
 public class registerPotionsBrewingEvent {
 
     @SubscribeEvent

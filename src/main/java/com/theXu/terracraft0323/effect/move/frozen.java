@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.effect.move;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -16,7 +16,7 @@ public class frozen extends MobEffect {
         super(pCategory, 0);
 
         //removeAttributeModifiers();
-        addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"frozen2"),20F, AttributeModifier.Operation.ADD_VALUE);
+        addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"frozen2"),20F, AttributeModifier.Operation.ADD_VALUE);
         System.out.println("aplly");
     }
 

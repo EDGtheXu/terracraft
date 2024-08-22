@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.event.ClientChatReceivedEvent;
 
 import java.util.UUID;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = NeoMod.MODID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.GAME)
 public class ChatMessageHandler {
     private static int number = 999999999;
 

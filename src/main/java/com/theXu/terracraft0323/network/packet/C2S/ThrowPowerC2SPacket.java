@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class ThrowPowerC2SPacket implements CustomPacketPayload {
     public static float throw_power;
     public  float throw_power_message;
-    public static final Type<ThrowPowerC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"throw_power_c2s"));
+    public static final Type<ThrowPowerC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"throw_power_c2s"));
     public static final StreamCodec<FriendlyByteBuf,ThrowPowerC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(ThrowPowerC2SPacket::write,ThrowPowerC2SPacket::new);
     @Override

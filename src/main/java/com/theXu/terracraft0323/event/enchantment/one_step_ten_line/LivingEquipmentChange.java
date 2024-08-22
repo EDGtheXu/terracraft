@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event.enchantment.one_step_ten_line;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.enchantment.ModEnchantmentHelper;
 import com.theXu.terracraft0323.enchantment.ModEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -15,7 +15,7 @@ import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID)
+@EventBusSubscriber(modid = NeoMod.MODID)
 public class LivingEquipmentChange {
     // 用于存储生物的默认 step_height 值
     private static final Map<LivingEntity, Double> defaultStepHeightMap = new HashMap<>();

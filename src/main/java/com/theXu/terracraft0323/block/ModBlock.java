@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.block;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.block.custome.PotatoTNTBlock;
 import com.theXu.terracraft0323.block.custome.PotatoTNTPrepareBlock;
 import com.theXu.terracraft0323.block.custome.SoundBlock;
@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 
 public class ModBlock {
 
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(NeoMafishMod.MODID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(NeoMod.MODID);
 
     public static final DeferredBlock<Block> GOLD_MELON = registerSimpleBlock("gold_melon", BlockBehaviour.Properties.of().mapColor(MapColor.GOLD));
 //    public static final DeferredBlock<Block> GEM_POLISHING_STATION=registerBlock("gem_polishing_station",

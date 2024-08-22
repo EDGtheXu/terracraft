@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.ServerManager;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.ability.playerLevel.playerLevel;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent.Pre;
 
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID)
+@EventBusSubscriber(modid = NeoMod.MODID)
 public class PlayerTickEventGen {
     public static Player globalPlayer = null;
 
@@ -26,7 +26,11 @@ public class PlayerTickEventGen {
     @SubscribeEvent
     public static void onPlayerTick(Pre event) {
 
-            Player player = event.getEntity();
+
+
+
+
+        Player player = event.getEntity();
             globalPlayer = player;
             //abilityRegister.levels = levelSaver.getServerState(ServerManager.getServerInstance());
 

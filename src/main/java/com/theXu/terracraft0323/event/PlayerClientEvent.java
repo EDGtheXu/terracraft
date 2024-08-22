@@ -1,15 +1,18 @@
 package com.theXu.terracraft0323.event;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.mixinhelper.BellBlockDelayMixinHelper;
+import com.theXu.terracraft0323.ui.gui.itemInfoScreen;
+import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID,value = Dist.CLIENT)
+@EventBusSubscriber(modid = NeoMod.MODID,value = Dist.CLIENT)
 public class PlayerClientEvent {
     @SubscribeEvent
     public static void onPlayerDisConnection(EntityLeaveLevelEvent event){
@@ -18,6 +21,9 @@ public class PlayerClientEvent {
         BellBlockDelayMixinHelper.BellBlockEntityMap.clear();
         BellBlockDelayMixinHelper.HitCoolDownMap.clear();
         BellBlockDelayMixinHelper.DirectionMap.clear();
+
+
+
     }
 
 
@@ -26,6 +32,7 @@ public class PlayerClientEvent {
         //System.out.println(event.getKey());
         if(event.getKey()==32){
             abilityRegister.get().inputJumping = true;
+
         }
 
     }
@@ -36,5 +43,15 @@ public class PlayerClientEvent {
         //System.out.println(event.getButton());
 
     }
+
+    @SubscribeEvent
+    public static void renderGui(RenderGuiEvent.Post event) {
+
+        itemInfoScreen iI = new itemInfoScreen(Minecraft.getInstance());
+        iI.render(event.getGuiGraphics());
+
+
+    }
+
 
 }

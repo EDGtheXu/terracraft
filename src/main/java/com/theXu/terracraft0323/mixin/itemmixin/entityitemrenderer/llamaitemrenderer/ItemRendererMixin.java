@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.mixin.itemmixin.entityitemrenderer.llamaitemrenderer;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -28,7 +28,7 @@ public class ItemRendererMixin {
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     public void renderItem(ItemStack itemStack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, BakedModel p_model, CallbackInfo ci) {
         // 检查是否是特定物品，例如钻石剑
-        if (BuiltInRegistries.ITEM.getKey(itemStack.getItem()).equals(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "llama_item"))) {
+        if (BuiltInRegistries.ITEM.getKey(itemStack.getItem()).equals(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "llama_item"))) {
             // 取消默认渲染
             ci.cancel();
 

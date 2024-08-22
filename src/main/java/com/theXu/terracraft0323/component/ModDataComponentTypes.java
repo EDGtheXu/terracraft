@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.component;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.neoforged.bus.api.IEventBus;
@@ -11,7 +11,7 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
-            DeferredRegister.createDataComponents(NeoMafishMod.MODID);
+            DeferredRegister.createDataComponents(NeoMod.MODID);
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> COORDINATES = register("coordinates",
             builder -> builder.persistent(BlockPos.CODEC));

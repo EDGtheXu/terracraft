@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.mixinhelper.ShieldDashMixinHelper;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class ShieldDashC2SPacket implements CustomPacketPayload{
     public int shieldDashCoolDown;
 
-    public static final Type<ShieldDashC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"shield_dash"));
+    public static final Type<ShieldDashC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"shield_dash"));
     public static final StreamCodec<FriendlyByteBuf,ShieldDashC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(ShieldDashC2SPacket::write,ShieldDashC2SPacket::new);
 

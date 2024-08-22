@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.mixin.itemmixin.entityitemrenderer.lightningitemrenderer;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -35,7 +35,7 @@ public class ItemRendererMixin {
             BakedModel p_model,
             CallbackInfo ci
     ){
-        if (BuiltInRegistries.ITEM.getKey(itemStack.getItem()).equals(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"lightning_item")))
+        if (BuiltInRegistries.ITEM.getKey(itemStack.getItem()).equals(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"lightning_item")))
         {
             ci.cancel();
             LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT,mc.level);

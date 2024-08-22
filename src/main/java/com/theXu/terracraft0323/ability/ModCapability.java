@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ability;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.ability.playerLevel.playerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +12,7 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 public class ModCapability {
     public static final EntityCapability<playerLevel,Void> LEVELS_HANDLE =
-            EntityCapability.createVoid(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"levels_handle"), playerLevel.class);
+            EntityCapability.createVoid(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"levels_handle"), playerLevel.class);
 
 
 
@@ -22,7 +22,7 @@ public class ModCapability {
 
 
 
-    @EventBusSubscriber(modid = NeoMafishMod.MODID,bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = NeoMod.MODID,bus = EventBusSubscriber.Bus.MOD)
     public static class ModEventBus{
         @SubscribeEvent
         private static void registerCapabilities(RegisterCapabilitiesEvent event) {

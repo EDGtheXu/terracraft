@@ -1,7 +1,7 @@
 package com.theXu.terracraft0323.item.terraSword.tailaren;
 
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -28,7 +28,7 @@ public class tai_la_ren_waveRender extends EntityRenderer {
     //这个方法返回一个ResourceLocation对象，指明了飞行剑实体的纹理文件位置。
     @Override
     public ResourceLocation getTextureLocation(Entity pEntity) {
-        return ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "textures/entity/wave/tai_la_ren_wave_model_entity.png");
+        return ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "textures/entity/wave/tai_la_ren_wave_model_entity.png");
     }
     //重写了render方法，这个方法定义了实体在游戏中的渲染逻辑。
 
