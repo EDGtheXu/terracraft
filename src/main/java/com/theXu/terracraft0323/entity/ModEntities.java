@@ -2,6 +2,8 @@ package com.theXu.terracraft0323.entity;
 
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyan;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon;
 import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword_wave;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren_wave;
 import com.theXu.terracraft0323.item.terraSword.waveHandler.empty;
@@ -114,8 +116,16 @@ public class ModEntities {
             );
 
 
-
-
+//summon
+    public static final Supplier<EntityType<ke_yan_fa_zhang_summon>> KE_YAN_SUMMON =
+            ENTITY_TYPES.register("ke_yan_fa_zhang_summon",
+                    () ->EntityType.Builder.<ke_yan_fa_zhang_summon>of(ke_yan_fa_zhang_summon::new, MobCategory.MISC)
+                            .sized(1F, 1F)
+                            .setTrackingRange(10)
+                            .setUpdateInterval(1)
+                            .setShouldReceiveVelocityUpdates(true)
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ke_yan_fa_zhang_summon").toString())
+            );
 
 
 

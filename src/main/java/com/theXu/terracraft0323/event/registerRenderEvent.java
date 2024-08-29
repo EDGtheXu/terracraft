@@ -2,6 +2,7 @@ package com.theXu.terracraft0323.event;
 
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.entity.ModEntities;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon_render;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -26,12 +27,18 @@ public class registerRenderEvent {
 
     @SubscribeEvent
     static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        //wave
         event.registerEntityRenderer(ModEntities.EMPTY_ENTITY.get(), emptyRender::new);
         event.registerEntityRenderer(ModEntities.TAI_LA_REN_WAVE.get(), tai_la_ren_waveRender::new);
         event.registerEntityRenderer(ModEntities.YONG_YE_REN_WAVE.get(), yong_ye_ren_waveRender::new);
         event.registerEntityRenderer(ModEntities.ICE_SWORD_WAVE.get(), ice_sword_waveRender::new);
-        event.registerEntityRenderer(ModEntities.KE_YAN.get(),kesuluzhiyanRender::new);
         event.registerEntityRenderer(ModEntities.XING_NU_WAVE.get(), xing_nu_waveRender::new);
+
+        //boss
+        event.registerEntityRenderer(ModEntities.KE_YAN.get(),kesuluzhiyanRender::new);
+
+        //summon
+        event.registerEntityRenderer(ModEntities.KE_YAN_SUMMON.get(), ke_yan_fa_zhang_summon_render::new );
 
     }
 

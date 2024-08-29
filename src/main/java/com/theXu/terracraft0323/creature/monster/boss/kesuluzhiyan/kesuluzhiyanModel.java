@@ -9,8 +9,9 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
 
-public class kesuluzhiyanModel<T extends kesuluzhiyan> extends EntityModel<T> {
+public class kesuluzhiyanModel<T extends Mob> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "kesuluzhiyan"), "main");
     private final ModelPart voxel_file;
@@ -309,7 +310,7 @@ public class kesuluzhiyanModel<T extends kesuluzhiyan> extends EntityModel<T> {
     }
 
     @Override
-    public void setupAnim(kesuluzhiyan entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(Mob entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
     }
 

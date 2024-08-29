@@ -7,6 +7,7 @@ import com.theXu.terracraft0323.item.terraBow.shenShengLianNu.shen_sheng_lian_nu
 import com.theXu.terracraft0323.item.terraJewelry.boot.bootBase;
 import com.theXu.terracraft0323.item.terraJewelry.defence.jinMaZhang;
 import com.theXu.terracraft0323.item.terraJewelry.fly.flyBase;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang;
 import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
 import com.theXu.terracraft0323.item.terraSword.yongYeSword.yong_ye_ren;
@@ -86,8 +87,14 @@ public class ModItems {
             ()->new shen_sheng_lian_nu(50));
 
 
+    //召唤
+    public static final DeferredItem<Item>  KE_YAN_FA_ZHANG= registerItem("summon/ke_yan_fa_zhang",
+            ke_yan_fa_zhang::new);
 
-//饰品
+
+
+
+    //饰品
     public static final DeferredItem<Item>  TAI_LA_XUE = registerItem("jewelry/tai_la_xue",
             ()->new bootBase(new Item.Properties().rarity(Rarity.RARE),2));
 
