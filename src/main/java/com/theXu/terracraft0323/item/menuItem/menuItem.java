@@ -1,17 +1,20 @@
 package com.theXu.terracraft0323.item.menuItem;
 
+import com.mojang.logging.LogUtils;
+import com.theXu.terracraft0323.NeoMod;
+import com.theXu.terracraft0323.ServerManager;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.ability.playerLevel.playerLevel;
-import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
+import com.theXu.terracraft0323.recipe.terraRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
 
 public class menuItem extends Item {
@@ -43,14 +46,7 @@ public class menuItem extends Item {
                     Component.translatable("menu.title.mainMenu")
             ));
 */
-            //打开带饰品的物品栏
-
-            pPlayer.openMenu(new SimpleMenuProvider(
-                    (containerId, playerInventory, p) -> new terraBag(containerId, playerInventory),
-                    Component.translatable("menu.title.terraInventory")
-            ));
-
-            System.out.println(pPlayer.getOffhandItem().getTags().toList());
+            terraRecipe.initRecipe();
 
 
         } else if (!pLevel.isClientSide && pUsedHand == InteractionHand.OFF_HAND) {

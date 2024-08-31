@@ -64,7 +64,11 @@ public class PlayerClientEvent {
 
     }
 
-
+    @SubscribeEvent
+    public static void onKeyInput(InputEvent.MouseScrollingEvent event) {
+        System.out.println(event.getScrollDeltaX());
+        System.out.println(event.getScrollDeltaY());
+    }
 
 
 }

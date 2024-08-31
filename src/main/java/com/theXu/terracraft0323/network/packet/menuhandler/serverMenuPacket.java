@@ -24,6 +24,7 @@ public class serverMenuPacket implements CustomPacketPayload {
 
     public serverMenuPacket(FriendlyByteBuf buf) {
         this.data = buf.readInt();
+
     }
 
     public serverMenuPacket(int data){

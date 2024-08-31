@@ -4,6 +4,7 @@ import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.ServerManager;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.ability.playerLevel.playerLevel;
+import com.theXu.terracraft0323.recipe.terraRecipe;
 import com.theXu.terracraft0323.ui.jewelrySlots.jewelryInventorySaver;
 import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
 import net.minecraft.client.Minecraft;
@@ -48,7 +49,7 @@ public class PlayerTickEventGen {
                 LocalPlayer lplayer = Minecraft.getInstance().player;
                 player.getAbilities().flying = true;
                 if(lplayer!=null){
-
+                    if(lplayer.input==null)return;
                     if (!lplayer.input.jumping)
                         player.getAbilities().flying = false;
                     else  {
@@ -105,6 +106,11 @@ public class PlayerTickEventGen {
             //饰品属性初始化
             terraBag.jis = jewelryInventorySaver.getServerState(ServerManager.getServerInstance());
             terraBag.tick(player);
+
+            //制作栏初始化
+            if(event.getLevel().isClientSide)
+                terraRecipe.initRecipe();
+
         }
     }
 

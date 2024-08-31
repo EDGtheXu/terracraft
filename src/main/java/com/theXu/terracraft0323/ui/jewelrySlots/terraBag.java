@@ -7,10 +7,15 @@ package com.theXu.terracraft0323.ui.jewelrySlots;
 import com.theXu.terracraft0323.ServerManager;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.item.terraJewelry.jewelryItem;
+import com.theXu.terracraft0323.recipe.terraRecipe;
 import com.theXu.terracraft0323.tag.ModTags;
 import com.theXu.terracraft0323.ui.modMenuType;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractScrollWidget;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,12 +24,16 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class terraBag extends AbstractContainerMenu {
@@ -51,6 +60,8 @@ public class terraBag extends AbstractContainerMenu {
     private static final EquipmentSlot[] SLOT_IDS;
     private static final terraEquipmentSlot[] SUB_SLOT_IDS;
     private final CraftingContainer craftSlots = new TransientCraftingContainer(this, 2, 2);
+    int vcount = 20;
+    private final CraftingContainer terraCraftSlots = new TransientCraftingContainer(this, 1, vcount+9);
     private final ResultContainer resultSlots = new ResultContainer();
     public Player owner ;
     public static jewelryInventorySaver jis;//饰品栏空间
@@ -133,6 +144,53 @@ public class terraBag extends AbstractContainerMenu {
                 return Pair.of(BLOCK_ATLAS, EMPTY_ARMOR_SLOT_SHIELD);
             }
         });
+
+        //制作栏
+/*
+        List<ItemStack> results = new ArrayList<>();
+        Map<ItemStack, List<Ingredient>> map = terraRecipe.getInstance();
+        map.forEach((k,v)-> results.add(k));
+
+        int internal = 18;
+
+        int craftx = -130;
+        int crafty = -25;
+
+
+        int currentIndex = 2;
+        int craftIndex = (currentIndex + vcount)/2;
+
+        int resultx = craftx + internal + 5;
+        int resulty = crafty + craftIndex * internal;
+
+
+
+
+        for(int i=0;i<vcount;i++){
+            Slot slot = addSlot(new SlotItemHandler(new ItemStackHandler(vcount){
+
+            },i,craftx,crafty + internal * i));
+            slot.set(results.get(currentIndex+i));
+        }
+        var ings = map.get(results.get(craftIndex));
+        System.out.println(ings.size());
+        for(int i=0;i<ings.size();i++){
+            Slot slot = addSlot(new SlotItemHandler(new ItemStackHandler(9) {
+                @Override//槽位不可存取
+                public boolean isItemValid(int slot, ItemStack stack) {
+                    return false;
+                }
+
+                @Override
+                public ItemStack getStackInSlot(int slot) {
+                    return ItemStack.EMPTY;
+                }
+            },i,resultx + internal * i, resulty));
+            slot.set(ings.get(i).getItems()[0]);
+        }
+
+*/
+
     }
 
 
