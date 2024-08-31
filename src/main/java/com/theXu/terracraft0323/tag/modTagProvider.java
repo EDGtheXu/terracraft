@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.tag;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -14,7 +14,7 @@ public class modTagProvider extends ItemTagsProvider {
 
 
     public modTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, blockTagProvider, NeoMafishMod.MODID, existingFileHelper);
+        super(output, lookupProvider, blockTagProvider, NeoMod.MODID, existingFileHelper);
     }
 
     @Override

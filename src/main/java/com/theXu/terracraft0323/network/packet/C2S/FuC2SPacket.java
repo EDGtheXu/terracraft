@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -39,7 +39,7 @@ public class FuC2SPacket  implements CustomPacketPayload{
             return uuid;
         }
     }
-    public static final Type<FuC2SPacket> TYPE = new Type<FuC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"fu_c2s"));
+    public static final Type<FuC2SPacket> TYPE = new Type<FuC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"fu_c2s"));
     public static final StreamCodec<FriendlyByteBuf,FuC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(FuC2SPacket::write,FuC2SPacket::new);
 

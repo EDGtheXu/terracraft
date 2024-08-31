@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.sound;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.bus.api.IEventBus;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModSounds {
 
-    public static DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(net.minecraft.core.registries.Registries.SOUND_EVENT, NeoMafishMod.MODID);
+    public static DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(net.minecraft.core.registries.Registries.SOUND_EVENT, NeoMod.MODID);
     public static final DeferredHolder<SoundEvent,SoundEvent> METAL_DETECTOR_FOUND_ORE = registerSoundEvent("metal_detector_found_ore");
     public static final DeferredHolder<SoundEvent,SoundEvent> SOUND_BLOCK_BREAK = registerSoundEvent("sound_block_break");
     public static final DeferredHolder<SoundEvent,SoundEvent> SOUND_BLOCK_STEP = registerSoundEvent("sound_block_step");
@@ -38,7 +38,7 @@ public class ModSounds {
 
 
     public static DeferredHolder<SoundEvent,SoundEvent> registerSoundEvent(String name){
-        return SOUNDS.register(name,()-> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,name)));
+        return SOUNDS.register(name,()-> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,name)));
     }
 
     public static void register(IEventBus eventBus){

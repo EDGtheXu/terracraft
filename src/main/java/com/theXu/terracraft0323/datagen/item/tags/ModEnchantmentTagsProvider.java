@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.datagen.item.tags;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.enchantment.ModEnchantments;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
     public ModEnchantmentTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, NeoMafishMod.MODID, existingFileHelper);
+        super(output, lookupProvider, NeoMod.MODID, existingFileHelper);
     }
     @Override
     protected void addTags(HolderLookup.Provider provider) {

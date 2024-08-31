@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.S2C;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public class BellSoundS2CPacket implements CustomPacketPayload {
     public static Type<BellSoundS2CPacket> TYPE =
-            new Type<BellSoundS2CPacket>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"bell_sound"));
+            new Type<BellSoundS2CPacket>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"bell_sound"));
 
     // stream codec
     public static final StreamCodec<FriendlyByteBuf, BellSoundS2CPacket> STREAM_CODEC =

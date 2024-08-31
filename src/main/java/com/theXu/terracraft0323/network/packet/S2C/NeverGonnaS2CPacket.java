@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.S2C;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.sound.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class NeverGonnaS2CPacket implements CustomPacketPayload {
     public static Type<NeverGonnaS2CPacket> TYPE =
-            new Type<NeverGonnaS2CPacket>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"never_gonna"));
+            new Type<NeverGonnaS2CPacket>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"never_gonna"));
 
     // stream codec
     public static final StreamCodec<FriendlyByteBuf, NeverGonnaS2CPacket> STREAM_CODEC =

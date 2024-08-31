@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ability.playerLevel;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
@@ -13,7 +13,7 @@ public class levelSaver extends SavedData {
     public playerLevel levels;
 
     public int ti;
-    private static final String storeName = NeoMafishMod.MODID + "_levels";
+    private static final String storeName = NeoMod.MODID + "_levels";
 
 
     public levelSaver(){

@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -16,7 +16,7 @@ public class GameOptionsC2SPacket implements CustomPacketPayload{
     public float masterMessage;
 
 
-    public static final Type<GameOptionsC2SPacket> TYPE = new Type<GameOptionsC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"game_options"));
+    public static final Type<GameOptionsC2SPacket> TYPE = new Type<GameOptionsC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"game_options"));
     public static final StreamCodec<FriendlyByteBuf,GameOptionsC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(GameOptionsC2SPacket::write,GameOptionsC2SPacket::new);
 

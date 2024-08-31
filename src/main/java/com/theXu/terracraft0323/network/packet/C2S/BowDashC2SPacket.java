@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.mixinhelper.BowDashMixinHelper;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class BowDashC2SPacket implements CustomPacketPayload {
 
     public int coldDown;
-    public static final Type<BowDashC2SPacket> TYPE = new Type<BowDashC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"bow_dash"));
+    public static final Type<BowDashC2SPacket> TYPE = new Type<BowDashC2SPacket>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"bow_dash"));
     public static final StreamCodec<FriendlyByteBuf,BowDashC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(BowDashC2SPacket::write,BowDashC2SPacket::new);
 

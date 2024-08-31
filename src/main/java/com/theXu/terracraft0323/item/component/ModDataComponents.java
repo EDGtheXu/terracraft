@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.item.component;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 public class ModDataComponents {
-    public static DeferredRegister<DataComponentType<?>> DATA_COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, NeoMafishMod.MODID);
+    public static DeferredRegister<DataComponentType<?>> DATA_COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, NeoMod.MODID);
 
 
     public static final DeferredHolder<DataComponentType<?>,DataComponentType<List<String>>> RUBY_STAFF_DES = register(

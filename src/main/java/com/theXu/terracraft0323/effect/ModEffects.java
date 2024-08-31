@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.effect;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.effect.custom.NormalEffect;
 import com.theXu.terracraft0323.effect.hurt.po_xiao;
 import com.theXu.terracraft0323.effect.move.fastMove;
@@ -18,7 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 public class ModEffects {
-    public static  DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, NeoMafishMod.MODID);
+    public static  DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, NeoMod.MODID);
 
     public static final DeferredHolder<MobEffect,MobEffect> IRONMAN =registerDeferredHolder("ironman",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0xFF0000)) ;
     public static final DeferredHolder<MobEffect,MobEffect>  FLOWER_EFFECT =registerDeferredHolder("flower_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0xFF0000)) ;
@@ -32,7 +32,7 @@ public class ModEffects {
     public static final DeferredHolder<MobEffect,MobEffect>  TAI_LA_XIE_EFFECT =registerDeferredHolder("tai_la_xie_effect",()->new fastMove(MobEffectCategory.BENEFICIAL,"tai_la_xie_move_speed",2f));
 
     public static final DeferredHolder<MobEffect,MobEffect>  SAFE_FALL =registerDeferredHolder("safe_fall_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0)
-            .addAttributeModifier(Attributes.SAFE_FALL_DISTANCE, ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"safe_fall"),1020, AttributeModifier.Operation.ADD_VALUE));
+            .addAttributeModifier(Attributes.SAFE_FALL_DISTANCE, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"safe_fall"),1020, AttributeModifier.Operation.ADD_VALUE));
 
 
 

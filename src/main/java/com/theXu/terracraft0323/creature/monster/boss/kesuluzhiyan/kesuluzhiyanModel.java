@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -9,10 +9,11 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
 
-public class kesuluzhiyanModel<T extends kesuluzhiyan> extends EntityModel<T> {
+public class kesuluzhiyanModel<T extends Mob> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "kesuluzhiyan"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "kesuluzhiyan"), "main");
     private final ModelPart voxel_file;
 
     public kesuluzhiyanModel(ModelPart root) {
@@ -309,7 +310,7 @@ public class kesuluzhiyanModel<T extends kesuluzhiyan> extends EntityModel<T> {
     }
 
     @Override
-    public void setupAnim(kesuluzhiyan entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(Mob entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
     }
 

@@ -20,13 +20,13 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(NeoMafishMod.MODID)
-public class NeoMafishMod
+@Mod(NeoMod.MODID)
+public class NeoMod
 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "terracraft0323";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public NeoMafishMod(IEventBus modEventBus, ModContainer modContainer)
+    public NeoMod(IEventBus modEventBus, ModContainer modContainer)
     {
         ModDataComponents.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);

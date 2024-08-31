@@ -3,7 +3,7 @@ package com.theXu.terracraft0323.item.terraSword.tailaren;// Made with Blockbenc
 // Paste this class into your mod and generate all required imports
 
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class tai_la_ren_waveModel<T extends tai_la_ren_wave> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "tai_la_ren_wave_model"), "main1");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "tai_la_ren_wave_model"), "main1");
     private final ModelPart body;
 
     public tai_la_ren_waveModel(ModelPart root) {

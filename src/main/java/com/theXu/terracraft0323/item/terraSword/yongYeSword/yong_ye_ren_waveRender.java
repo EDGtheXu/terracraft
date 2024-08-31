@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.item.terraSword.yongYeSword;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -16,7 +16,7 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
 public class yong_ye_ren_waveRender extends EntityRenderer<AbstractHurtingProjectile> {
-    protected final static ResourceLocation TEXTURE_LOCATION= ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "textures/entity/wave/ice_sword_wave.png");
+    protected final static ResourceLocation TEXTURE_LOCATION= ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "textures/entity/wave/ice_sword_wave.png");
     protected final static RenderType RENDER_TYPE= RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
     protected  final static float scale = 1f;
     public yong_ye_ren_waveRender(EntityRendererProvider.Context pContext) {

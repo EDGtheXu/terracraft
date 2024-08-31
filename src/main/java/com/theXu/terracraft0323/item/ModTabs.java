@@ -10,7 +10,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static com.theXu.terracraft0323.NeoMafishMod.MODID;
+import static com.theXu.terracraft0323.NeoMod.MODID;
 
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =

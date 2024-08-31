@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.tag;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -14,7 +14,7 @@ public class ModTags {
             tag("can_ball_replaced");
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, name));
         }
 
         private static TagKey<Block> forgeTag(String name) {
@@ -30,7 +30,7 @@ public class ModTags {
                 tag("jewelry_fly");
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, name));
         }
 
         private static TagKey<Item> forgeTag(String name) {

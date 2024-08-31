@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ui;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -8,7 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class providerRegister {
     protected static final DeferredRegister<BlockEntityType<?>> MENU_PROVIDER_TYPES =
-            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, NeoMafishMod.MODID);
+            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, NeoMod.MODID);
 
     public static void register(IEventBus eventBus){
         MENU_PROVIDER_TYPES.register(eventBus);

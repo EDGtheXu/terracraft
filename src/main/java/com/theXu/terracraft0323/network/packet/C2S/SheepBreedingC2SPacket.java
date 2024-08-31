@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.network.packet.C2S;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -11,7 +11,7 @@ public class SheepBreedingC2SPacket implements CustomPacketPayload {
     static int times;
     int timesMessage;
 
-    public static final Type<SheepBreedingC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"sheep_breeding"));
+    public static final Type<SheepBreedingC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"sheep_breeding"));
     public static final StreamCodec<FriendlyByteBuf,SheepBreedingC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(SheepBreedingC2SPacket::write,SheepBreedingC2SPacket::new);
 

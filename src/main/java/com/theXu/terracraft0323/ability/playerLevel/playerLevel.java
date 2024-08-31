@@ -18,6 +18,10 @@ public class playerLevel {
     public boolean flying = true;
     public boolean flyrefresh = false;
 
+    public int summonCount = 0;
+    public int summonCountMax = 1;
+    public int magicRemain = 200;
+    public int magicMax = 200;
 
     public playerLevel(){
 
@@ -34,6 +38,12 @@ public class playerLevel {
         nbt.putFloat("flyRemain",flyRemain);
         nbt.putBoolean("canFly",canFly);
         nbt.putBoolean("jump",inputJumping);
+
+        nbt.putInt("summonCount",summonCount);
+        nbt.putInt("summonCountMax",summonCountMax);
+
+        nbt.putInt("magicRemain",magicRemain);
+        nbt.putInt("magicMax",magicMax);
     }
     public CompoundTag toNBTData(){
         CompoundTag nbt = new CompoundTag();
@@ -44,6 +54,12 @@ public class playerLevel {
         nbt.putFloat("flyRemain",flyRemain);
         nbt.putBoolean("canFly",canFly);
         nbt.putBoolean("jump",inputJumping);
+
+        nbt.putInt("summonCount",summonCount);
+        nbt.putInt("summonCountMax",summonCountMax);
+
+        nbt.putInt("magicRemain",magicRemain);
+        nbt.putInt("magicMax",magicMax);
         return nbt;
     }
 
@@ -55,6 +71,9 @@ public class playerLevel {
         flyRemain = nbt.getFloat("flyRemain");
         canFly = nbt.getBoolean("canFly");
         inputJumping = nbt.getBoolean("jump");
+
+        summonCount = nbt.getInt("summonCount");
+        summonCountMax = nbt.getInt("summonCountMax");
     }
 
 }

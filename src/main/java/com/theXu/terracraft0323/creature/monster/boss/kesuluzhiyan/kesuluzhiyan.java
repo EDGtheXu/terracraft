@@ -201,10 +201,10 @@ public class kesuluzhiyan extends Monster {
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 
-    private void performAttack(){
+    private void performAttack() {
         LivingEntity tar = getTarget();
         this.setAggressive(true);
-        if(tar!=null) {
+        if (tar != null) {
             System.out.println("attack : " + tar.getName());
             this.attactRemain = this.tickCount + attactContinue;
             this.attackDir = this.getForward();

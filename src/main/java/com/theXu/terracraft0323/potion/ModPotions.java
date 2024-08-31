@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.potion;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.effect.ModEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModPotions {
-    public static DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, NeoMafishMod.MODID);
+    public static DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, NeoMod.MODID);
 
     public static Holder<Potion> FLOWER_POTION = registerPotion("flower_potion",3600,5, ModEffects.FLOWER_EFFECT);
     public static Holder<Potion>  TELEPORT_POTION = registerPotion("teleport_potion",100,0,ModEffects.TELEPORT_EFFECT);

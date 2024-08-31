@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.item.terraSword.iceSword;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -17,7 +17,7 @@ import org.joml.Matrix4f;
 
 public class ice_sword_waveRender extends EntityRenderer<AbstractHurtingProjectile> {
 
-    protected  ResourceLocation TEXTURE_LOCATION= ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID, "textures/entity/wave/ice_sword_wave.png");
+    protected  ResourceLocation TEXTURE_LOCATION= ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "textures/entity/wave/ice_sword_wave.png");
 
     public ice_sword_waveRender(EntityRendererProvider.Context pContext) {
         super(pContext);

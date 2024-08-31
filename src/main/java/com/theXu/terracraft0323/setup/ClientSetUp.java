@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.setup;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.entity.ModEntities;
 import com.theXu.terracraft0323.render.itemModel.ItemModelEvent;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -10,7 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@EventBusSubscriber(modid = NeoMafishMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = NeoMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetUp {
 
     @SubscribeEvent

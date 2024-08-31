@@ -1,7 +1,9 @@
 package com.theXu.terracraft0323.entity;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyan;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang;
+import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon;
 import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword_wave;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren_wave;
 import com.theXu.terracraft0323.item.terraSword.waveHandler.empty;
@@ -18,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 public class ModEntities {
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, NeoMafishMod.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, NeoMod.MODID);
 
     public static final DeferredHolder<EntityType<?>,EntityType<TNTProjectileEntity>> TNT_PROJECTILE = ENTITY_TYPES.register("tnt_projectile",
             ()-> EntityType.Builder.<TNTProjectileEntity>of(TNTProjectileEntity::new, MobCategory.MISC).sized(0.25f,0.25f).build("tnt_projectile"));
@@ -56,7 +58,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"empty_entity").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"empty_entity").toString())
             );
 
 
@@ -67,7 +69,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(1)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"tai_la_ren").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"tai_la_ren").toString())
             );
     public static final Supplier<EntityType<yong_ye_ren_wave>> YONG_YE_REN_WAVE =
             ENTITY_TYPES.register("yong_ye_ren_wave",
@@ -76,7 +78,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"yong_ye_ren").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"yong_ye_ren").toString())
             );
 
     public static final Supplier<EntityType<ice_sword_wave>> ICE_SWORD_WAVE =
@@ -86,7 +88,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"ice_sword").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ice_sword").toString())
             );
 
     public static final Supplier<EntityType<xing_nu_wave>> XING_NU_WAVE =
@@ -96,7 +98,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"xing_nu").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"xing_nu").toString())
             );
 
 
@@ -110,12 +112,20 @@ public class ModEntities {
                             .setTrackingRange(200)
                             .setUpdateInterval(1)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"ke_yan").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ke_yan").toString())
             );
 
 
-
-
+//summon
+    public static final Supplier<EntityType<ke_yan_fa_zhang_summon>> KE_YAN_SUMMON =
+            ENTITY_TYPES.register("ke_yan_fa_zhang_summon",
+                    () ->EntityType.Builder.<ke_yan_fa_zhang_summon>of(ke_yan_fa_zhang_summon::new, MobCategory.MISC)
+                            .sized(1F, 1F)
+                            .setTrackingRange(10)
+                            .setUpdateInterval(1)
+                            .setShouldReceiveVelocityUpdates(true)
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ke_yan_fa_zhang_summon").toString())
+            );
 
 
 

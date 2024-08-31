@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.attribute;
 
-import com.theXu.terracraft0323.NeoMafishMod;
+import com.theXu.terracraft0323.NeoMod;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,10 +13,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModAttributes {
 
-    public static DeferredRegister<Attribute> AttributesTypes = DeferredRegister.create(Registries.ATTRIBUTE, NeoMafishMod.MODID);
+    public static DeferredRegister<Attribute> AttributesTypes = DeferredRegister.create(Registries.ATTRIBUTE, NeoMod.MODID);
 
     private static Holder<Attribute> register(String name, Attribute attribute) {
-        return Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,name), attribute);
+        return Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,name), attribute);
     }
 
 
