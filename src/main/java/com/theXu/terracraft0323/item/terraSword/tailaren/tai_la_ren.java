@@ -72,7 +72,7 @@ public class tai_la_ren extends terraria_sword_base {
 
     //初始附魔
     public ItemStack createStack(){
-        ItemStack s = getDefaultInstance();
+        ItemStack s = new ItemStack(this);
 
         Optional<HolderLookup.RegistryLookup<Enchantment>> lookup = null;
         Level level = Minecraft.getInstance().level;
@@ -98,6 +98,27 @@ public class tai_la_ren extends terraria_sword_base {
 
 
         return s;
+    }
+
+    public void onCraftedBy(ItemStack s, Level level, Player player){
+        Optional<HolderLookup.RegistryLookup<Enchantment>> lookup = null;
+        if ( level != null) {
+            lookup = level.registryAccess().lookup(Registries.ENCHANTMENT);
+            HolderLookup.RegistryLookup<Enchantment> enchantmentRegistryLookup = lookup.get();
+            //List<Holder.Reference<Enchantment>> NEGATIVE_ENCHANTMENTS = enchantmentRegistryLookup.listElements().filter(enchantmentReference -> enchantmentReference.is(EnchantmentTags.CURSE)).toList();
+
+            var op = enchantmentRegistryLookup.get(Enchantments.SHARPNESS);
+            if(op.isPresent()){
+                var enchant = op.get().getDelegate();
+                s.enchant(enchant,10);
+            }
+
+            op = enchantmentRegistryLookup.get(Enchantments.QUICK_CHARGE);
+            if(op.isPresent()){
+                var enchant = op.get().getDelegate();
+                s.enchant(enchant,10);
+            }
+        }
     }
 
     //应用手持药水效果

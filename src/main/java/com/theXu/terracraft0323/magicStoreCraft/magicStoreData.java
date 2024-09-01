@@ -1,4 +1,4 @@
-package com.theXu.terracraft0323.block.magicStoreCraft;
+package com.theXu.terracraft0323.magicStoreCraft;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -39,6 +39,7 @@ public class magicStoreData extends SavedData {
      */
     public void putItem(ItemStack item) {
         itemStacks.push(item);
+
         setDirty();
     }
     /**

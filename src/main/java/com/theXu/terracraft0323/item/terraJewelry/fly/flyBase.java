@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.awt.*;
 import java.util.List;
@@ -25,22 +26,17 @@ public class flyBase extends jewelryItem {
 
     }
 
-    //应用手持药水效果
-
     @Override
-    public void jewelryTick(Entity pEntity) {
-//        ((Player)pEntity).getAttribute(Attributes.FLYING_SPEED).addOrReplacePermanentModifier(
-//                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NeoMafishMod.MODID,"tjxp_speed_h"),
-//                        1,
-//                        AttributeModifier.Operation.ADD_VALUE)
-//        );
-
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
+        if(slotId<41) return;
         abilityRegister.get().flySpeedH = horizon;
         abilityRegister.get().flySpeedV = up;
         abilityRegister.get().flyMaxTime = duration * 20;
         abilityRegister.get().canFly = true;
-
     }
+
+
     @Override
     public void appendHoverText(ItemStack itemStack, Item.TooltipContext pContext, List<Component> componentList, TooltipFlag tooltipFlag) {
         // 添加基础的悬停文本

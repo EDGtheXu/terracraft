@@ -25,12 +25,12 @@ System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngen\n\n\n\n\n\n\n\n\n\n\
 
         tag(ModTags.Items.JEWELRY)
                 .add(ModItems.TIAN_JIE_XING_PAN.get())
-
+                .add(ModItems.TAI_LA_XUE.get())
+                .add(ModItems.JIN_MA_ZHANG.get())
         ;
 
         tag(ModTags.Items.JEWELRY_FLY)
                 .add(ModItems.TIAN_JIE_XING_PAN.get())
-
         ;
 
 

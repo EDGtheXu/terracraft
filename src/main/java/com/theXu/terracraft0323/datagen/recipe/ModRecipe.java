@@ -14,6 +14,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModRecipe extends RecipeProvider {
 
+
+
     public ModRecipe(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
@@ -29,6 +31,21 @@ public class ModRecipe extends RecipeProvider {
                 .unlockedBy("has_ruby",has(Items.BREAD))
                 .save(recipeOutput);
 
+/*
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TAI_LA_REN.get())
+                .pattern("B")
+                .pattern("B")
+                .pattern("S")
+                .define('B',Items.DIRT)
+                .define('S',Items.STICK)
+                .unlockedBy("has_dirt",has(Items.DIRT))
+                .save(recipeOutput);
+*/
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.TAI_LA_REN.get())
+                .requires(Items.SNOWBALL,8)
+                .unlockedBy("has_snowball",has(Items.SNOWBALL))
+                .save(recipeOutput);
+
         cookRecipes(recipeOutput, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new, 100);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.STONE_BALL.get())
@@ -42,6 +59,8 @@ public class ModRecipe extends RecipeProvider {
                 .requires(Items.TNT)
                 .unlockedBy("has_snowball",has(Items.TNT))
                 .save(recipeOutput);
+
+
 
     }
 

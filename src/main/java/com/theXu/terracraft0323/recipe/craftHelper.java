@@ -1,5 +1,7 @@
 package com.theXu.terracraft0323.recipe;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -12,6 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class craftHelper {
     Player player;
     Inventory inventory;
+    List<ItemStack> haveItem = new ArrayList<>();
 
     public Map<Item,Integer> inventoryMap = new HashMap<>();
     public Map<Item, List<ItemStack>> inventoryItemStackMap = new HashMap<>();
@@ -21,7 +24,7 @@ public class craftHelper {
     public craftHelper(Player player){
         this.player = player;
         this.inventory = player.getInventory();
-
+        haveItem.addAll(inventory.items);
     }
 
 
@@ -80,9 +83,26 @@ public class craftHelper {
                     cost.get(i).setCount(cost.get(i).getCount() - costCount.get(i));
                 }
 
+                ItemStack added = result.copy();
+                added.onCraftedBy(player.level(),player,1);
 
-                inventory.add(result.copy());
-                System.out.println("craft");
+
+                if(player.addItem(added)){
+                    player.level()
+                            .playSound(
+                                    null,
+                                    player.getX(),
+                                    player.getY(),
+                                    player.getZ(),
+                                    SoundEvents.ITEM_PICKUP,
+                                    SoundSource.PLAYERS,
+                                    0.2F,
+                                    ((player.getRandom().nextFloat() - player.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F
+                            );
+                }else{
+                    player.drop(added,false);
+                }
+
             }
         }
 

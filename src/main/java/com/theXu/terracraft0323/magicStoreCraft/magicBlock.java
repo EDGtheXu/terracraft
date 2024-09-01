@@ -1,22 +1,27 @@
-package com.theXu.terracraft0323.block.magicStoreCraft;
+package com.theXu.terracraft0323.magicStoreCraft;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.Nullable;
 
-public class magicStoreBlock extends Block {
-    public magicStoreBlock() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+public class magicBlock extends BaseEntityBlock {
+    public magicBlock(Properties properties) {
+        super(properties);
     }
 
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
+    }
 
 
     /**
@@ -33,9 +38,13 @@ public class magicStoreBlock extends Block {
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack stack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        System.out.println("use");
+
         if(!pLevel.isClientSide){
 
+            System.out.println("use");
+            pPlayer.openMenu(this.getMenuProvider(pState,pLevel,pPos),pPos);
+
+/*
             magicStoreData data  = magicStoreData.get(pLevel);
             ItemStack mainHandItem = pPlayer.getMainHandItem();
 
@@ -47,7 +56,15 @@ public class magicStoreBlock extends Block {
                 mainHandItem.shrink(mainHandItem.getCount());
                 data.putItem(itemStack);
             }
+            */
+
         }
         return ItemInteractionResult.SUCCESS;
+    }
+
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new magicStoreBlockEntity(blockPos,blockState);
     }
 }

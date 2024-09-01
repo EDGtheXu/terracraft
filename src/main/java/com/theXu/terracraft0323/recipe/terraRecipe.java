@@ -16,7 +16,10 @@ public class terraRecipe {
     public static Map<ItemStack, List<Ingredient>> getInstance(){return recipeMap;}
 
     public static Map<Item,Set<ItemStack>> itemForResultSet = new LinkedHashMap<>();
+
+
     public static void initRecipe(){
+        recipeMap.clear();
         RecipeManager rm = ServerManager.serverInstance.getRecipeManager();
         Level level = Minecraft.getInstance().level;
         if(level==null){
@@ -28,6 +31,7 @@ public class terraRecipe {
         //var rs = rm.getAllRecipesFor(RecipeType.CRAFTING);
 
         var rs = rm.getAllRecipesFor(RecipeType.CRAFTING);
+
         System.out.println(rs.size());
         //遍历所有制作谱
         for(var recipe : rs){

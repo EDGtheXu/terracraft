@@ -1,10 +1,12 @@
 package com.theXu.terracraft0323.item.terraJewelry;
 
+import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.awt.*;
 import java.util.List;
@@ -31,6 +33,8 @@ public class jewelryItem extends Item {
 
         super.appendHoverText(itemStack, pContext, componentList, tooltipFlag);
     }
+
+
 
 
 }

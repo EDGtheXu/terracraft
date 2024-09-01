@@ -75,18 +75,18 @@ public class terraBag extends AbstractContainerMenu {
     public terraBag(int pContainerId, Inventory playerInventory, ContainerData data) {
         super(modMenuType.TERRA_MENU.get(), pContainerId);
 
-        this.addSlot(new ResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 154, 28));
+//        this.addSlot(new ResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 154, 28));
 
         //owner.sendSystemMessage(Component.literal("message"));
         int i1;
         int j1;
 
         owner =  Minecraft.getInstance().player;
-        for(i1 = 0; i1 < 2; ++i1) {
-            for(j1 = 0; j1 < 2; ++j1) {
-                this.addSlot(new Slot(this.craftSlots, j1 + i1 * 2, 98 + j1 * 18, 18 + i1 * 18));
-            }
-        }
+//        for(i1 = 0; i1 < 2; ++i1) {
+//            for(j1 = 0; j1 < 2; ++j1) {
+//                this.addSlot(new Slot(this.craftSlots, j1 + i1 * 2, 98 + j1 * 18, 18 + i1 * 18));
+//            }
+//        }
 
         //装备栏
         for(i1 = 0; i1 < 4; ++i1) {
@@ -99,22 +99,16 @@ public class terraBag extends AbstractContainerMenu {
         }
 
         //饰品栏
-        if(Minecraft.getInstance().isSameThread())
-            jis = new jewelryInventorySaver();
-        else jis = jewelryInventorySaver.getServerState(ServerManager.getServerInstance());
-
-        ItemStackHandler itemHandler = jis.itemHandler;
-        for(i1 = 0; i1 < 7; ++i1) {
-            terraEquipmentSlot equipmentslot = SUB_SLOT_IDS[i1];
-            ResourceLocation resourcelocation = (ResourceLocation)TEXTURE_EMPTY_SLOTS.get(equipmentslot);
-            //this.addSlot(new SubSlot(playerInventory, owner, equipmentslot, i1, 8, 8 + i1 * 18, resourcelocation));
-            addSlot(new SlotItemHandler(itemHandler,i1,-18,8+i1*18){
+        for(int ii1 = 0; ii1 < 7; ++ii1) {
+            addSlot(new Slot(playerInventory,ii1 + 41,180,8+ii1*18){
                 @Override
                 public Pair<ResourceLocation, ResourceLocation> getNoItemIcon()  {
-                    return Pair.of(BLOCK_ATLAS,EMPTY_ARMOR_SLOT_SHIELD);
+                    return Pair.of(ResourceLocation.withDefaultNamespace("textures/atlas/blocks.png"),ResourceLocation.withDefaultNamespace("item/empty_armor_slot_shield"));
                 }
-
-
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return stack.getTags().toList().contains(ModTags.Items.JEWELRY);
+                }
             });
         }
 
@@ -132,8 +126,6 @@ public class terraBag extends AbstractContainerMenu {
         }
 
         //副手栏
-
-
         this.addSlot(new Slot(playerInventory, 40, 77, 62) {
             public void setByPlayer(ItemStack p_270969_, ItemStack p_299918_) {
                 owner.onEquipItem(EquipmentSlot.OFFHAND, p_299918_, p_270969_);

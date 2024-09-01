@@ -29,15 +29,10 @@ public class PlayerTickEventGen {
 
 
 
-
-
         Player player = event.getEntity();
             globalPlayer = player;
             //abilityRegister.levels = levelSaver.getServerState(ServerManager.getServerInstance());
 
-
-        //饰品背包tick
-            terraBag.tick(player);
 
         //飞行翅膀
 
@@ -103,9 +98,10 @@ public class PlayerTickEventGen {
 
             //能力属性初始化
             abilityRegister.initLevel();
+
             //饰品属性初始化
-            terraBag.jis = jewelryInventorySaver.getServerState(ServerManager.getServerInstance());
-            terraBag.tick(player);
+            //terraBag.jis = jewelryInventorySaver.getServerState(ServerManager.getServerInstance());
+            //terraBag.tick(player);
 
             //制作栏初始化
             if(event.getLevel().isClientSide)

@@ -95,7 +95,9 @@
     "mobmixin.goatdashforever.GoatBrainMixin",
     "mobmixin.llamaspitforever.LlamaEntity_SpitRevengeGoalMixin",
     "mobmixin.llamaspitforever.LlamaEntityMixin",
-    "mobmixin.pandaeatswitch.PandaEntityMixin"
+    "mobmixin.pandaeatswitch.PandaEntityMixin",
+    "terraBag.inventoryMenuMixin",
+    "terraBag.inventoryMixin"
   ],
   "client": [
     "effectMixin.sheep.PlayerEntityRendererMixin",

@@ -7,7 +7,9 @@ import com.theXu.terracraft0323.recipe.terraRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.AbstractContainerWidget;
 import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -87,7 +89,7 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
             */
 
         if (Minecraft.getInstance().screen != null) {
-            scrollWidget = new TerraCraftComponent(0,0,Minecraft.getInstance().screen.width/4,Minecraft.getInstance().screen.height-40, Component.literal("widget.terracraft"));
+            scrollWidget = new TerraCraftComponent(5,5,6,11, Component.literal("widget.terracraft"));
             //addWidget(scrollWidget);
             addRenderableWidget(scrollWidget);
 
@@ -95,7 +97,7 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
             addRenderableWidget(craftWidget);
         }
 
-            super.init();
+        super.init();
 
 /*
             this.widthTooNarrow = this.width < 379;
@@ -145,13 +147,13 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
         }
 
         this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
-        if(scrollWidget.hoverIt!=null)
-            pGuiGraphics.renderTooltip(this.font, this.getTooltipFromContainerItem(scrollWidget.hoverIt), scrollWidget.hoverIt.getTooltipImage(), scrollWidget.hoverIt, pMouseX, pMouseY);
 
         this.recipeBookComponent.renderTooltip(pGuiGraphics, this.leftPos, this.topPos, pMouseX, pMouseY);
         this.xMouse = (float)pMouseX;
         this.yMouse = (float)pMouseY;
 
+        if(scrollWidget.hoverIt!=null)
+            pGuiGraphics.renderTooltip(this.font, this.getTooltipFromContainerItem(scrollWidget.hoverIt), scrollWidget.hoverIt.getTooltipImage(), scrollWidget.hoverIt, pMouseX, pMouseY);
 
         //this.scrollWidget.render(pGuiGraphics,0,0,pPartialTick);
 
@@ -321,7 +323,7 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
 
 
 
-    private class TerraCraftComponent extends AbstractWidget{
+    private class TerraCraftComponent extends AbstractContainerWidget {
         List<ItemStack> results;
 
         private Map<ItemStack, List<Ingredient>> map;
@@ -337,52 +339,56 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
         private ItemStack hoverIt;
 
 
-        private AbstractButton nextBt = new AbstractButton(this.width+28,0,25,20,Component.literal(String.valueOf(maxPage))) {
-            @Override
-            public void onPress() {
-                page = page % maxPage+1;
-                lastBt.setMessage(Component.literal(String.valueOf(page)));
-            }
+        private AbstractButton nextBt;
+        private AbstractButton lastBt;
 
-            @Override
-            protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) { }
-        };
-        private AbstractButton lastBt = new AbstractButton(this.width,0,25,20,Component.literal(String.valueOf(page))) {
-            @Override
-            public void onPress() {
-                page--;
-                if(page==0) page = maxPage;
-                this.setMessage(Component.literal(String.valueOf(page)));
-            }
-
-            @Override
-            protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
-            }
-        };
-
-
-        public TerraCraftComponent(int x, int y, int width, int height, Component message) {
-            super(x, y, width, height, message);
-
+        public TerraCraftComponent(int x, int y, int lineCount, int rowCount, Component message) {
+            super(x, y, 0, 0, message);
+            this.lineCount = lineCount;
+            this.rowCount = rowCount;
+            setWidth(lineCount * internal);
+            setHeight(rowCount * internal);
             results = new ArrayList<>();
             map = terraRecipe.getInstance();
 
-            addRenderableWidget(nextBt);
-            addRenderableWidget(lastBt);
 
+
+            lastBt = new AbstractButton(this.getX()+this.width+5,this.getY(),25,20,Component.literal(String.valueOf(page))) {
+                @Override
+                public void onPress() {
+                    page--;
+                    if(page==0) page = maxPage;
+                    this.setMessage(Component.literal(String.valueOf(page)));
+                }
+
+                @Override
+                protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+                }
+            };
+
+            nextBt = new AbstractButton(this.getX()+this.width+5+28,this.getY(),25,20,Component.literal(String.valueOf(maxPage))) {
+                @Override
+                public void onPress() {
+                    page = page % maxPage+1;
+                    lastBt.setMessage(Component.literal(String.valueOf(page)));
+                }
+
+                @Override
+                protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) { }
+            };
 
         }
 
-
         @Override
         protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float pTick) {
+            guiGraphics.pose().pushPose();
+            guiGraphics.pose().translate(this.getX(),this.getY(),0);
             //刷新可制作表和背包列表
-            refreshInventoryMap(playerInventory);
+            refreshInventoryMap(playerInventory.items);
             refreshScreen();
             //渲染物品
             boolean flag = true;
             for(int j=0;j < rowCount  && flag;j++){
-
                 for(int i=0;i<lineCount;i++){
                     int index = i + j * lineCount + (page -1)* pageCount;
                     if(index >= results.size()){
@@ -392,12 +398,12 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
                     renderItemStack(guiGraphics,results.get(index),i * internal,j * internal,!canCraft(inventoryMap,terraRecipe.getInstance().get(results.get(index))));
                 }
             }
+            guiGraphics.pose().popPose();
 
             //渲染物品信息
-
             if(this.isHovered) {
-                int resi = mouseX / internal;
-                int resj = mouseY / internal;
+                int resi = (mouseX-getX()) / internal;
+                int resj = (mouseY-getY()) / internal;
 
                 int index = resi + resj * lineCount + (page - 1) * pageCount;
                 if (index < results.size()) {
@@ -408,31 +414,35 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
             }else{
                 hoverIt = null;
             }
+
+            //子控件
+            lastBt.render(guiGraphics,this.width,mouseY,pTick);
+            nextBt.render(guiGraphics,this.width+lastBt.getWidth()+3,mouseY,pTick);
+
         }
 
         @Override
         protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) { }
 
         @Override
+        public List<? extends GuiEventListener> children() {
+            return List.of(lastBt,nextBt);
+        }
+
+        @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
 
-            if(mouseX>this.getX()+this.width||mouseY>getY()+this.height||mouseX<getX()||mouseY<getY()) return false;
-
-            int resi = (int) (mouseX/internal);
-            int resj = (int) (mouseY/internal);
-                //System.out.println(resi+" "+resj);
-            int index = resi + resj * lineCount + (page - 1) * pageCount;
-            if(index < results.size()){
-                selectResult = results.get(index);
+            if(hoverIt!=null){
+                selectResult = hoverIt;
                 selectIng = map.get(selectResult);
             }
-
             return super.mouseClicked(mouseX, mouseY, button);
 
         }
 
 
         public Set<ItemStack> getItemForResult(Inventory inventory){
+            //制作相关的物品
             Set<ItemStack> itemStacks = new LinkedHashSet<>();
             for(ItemStack it : inventory.items){
                 var sets = terraRecipe.itemForResultSet.get(it.getItem());
@@ -452,7 +462,16 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
                 results.add(n);
             }
 
-            results.sort((a,b)->canCraft(inventoryMap,getIngredients(a))?-1:(canCraft(inventoryMap,getIngredients(b))?1:0 ));
+            //按可制作和名称排序
+            results.sort((a,b)->
+                    canCraft(inventoryMap,getIngredients(a))?
+                            (canCraft(inventoryMap,getIngredients(b))?
+                                    a.getDisplayName().getString().compareTo(b.getDisplayName().getString()):
+                                    -1):
+                            (canCraft(inventoryMap,getIngredients(b))?
+                                    1:
+                                    a.getDisplayName().getString().compareTo(b.getDisplayName().getString()))
+            );
 
             maxPage = (results.size() + pageCount + 1 ) / pageCount;
             nextBt.setMessage(Component.literal(String.valueOf(maxPage)));
@@ -463,94 +482,55 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
     }
 
 
-    private class doCraftWidget extends AbstractWidget {
+    private class doCraftWidget extends AbstractContainerWidget {
         private AbstractButton bt;
 
 
         public doCraftWidget(int x, int y, int width, int height, Component message) {
             super(x, y, width, height, message);
-            bt = new AbstractButton(x,y,20,10,Component.literal("合成")) {
+            bt = new AbstractButton(getX(),getY(), 25,15,Component.literal("合成")) {
                 @Override
                 public void onPress() {
                     int id = terraRecipe.getInstance().keySet().stream().toList().indexOf(scrollWidget.selectResult);
+                    //客户端发包
                     PacketDistributor.sendToServer(new serverCraftPacket(id));
 
-
-/*
-                    refreshInventoryMap(playerInventory);
-                    List<ItemStack> cost = new ArrayList<>();
-                    if(scrollWidget.selectResult!=null){
-                        boolean canCraft = true;
-                        //每一种原料
-                        for(Ingredient ig : scrollWidget.selectIng){
-                            boolean haveIg = false;
-                            //原料的每种物品
-                            for (ItemStack it : ig.getItems()){
-                                List<ItemStack> invens = inventoryItemStackMap.get(it.getItem());
-                                if(invens==null) continue;
-                                boolean contain = false;
-                                //背包拥有的物品
-                                for(ItemStack haveIt : invens){
-                                    if(haveIt.getCount() >= it.getCount()){
-                                        contain = true;
-                                        cost.add(haveIt);
-                                        break;
-                                    }
-                                }
-                                if(contain){
-                                    haveIg = true;
-                                    break;
-                                }
-                            }
-                            if(!haveIg){
-                                canCraft = false;
-                                break;
-                            }
-
-                        }
-                        if(canCraft){
-                            cost.forEach(it->it.setCount(0));
-                            playerInventory.add(scrollWidget.selectResult);
-                            System.out.println("craft");
-                        }
-                    }
-*/
                 }
-
                 @Override
-                protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
-
-                }
-
-
+                protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) { }
             };
-            addRenderableWidget(bt);
+
         }
 
         @Override
         protected void renderWidget(GuiGraphics guiGraphics, int x, int y, float t) {
-            //bt.render(guiGraphics,x,y,t);
-
+            guiGraphics.pose().pushPose();
+            //guiGraphics.pose().translate(this.getX(),this.getY(),0);
 
             var ings = scrollWidget.selectIng;
             if(ings==null) return;
-            renderItemStack(guiGraphics,scrollWidget.selectResult,this.getX()+30,this.getY(),!canCraft(inventoryMap,ings));
+            renderItemStack(guiGraphics,scrollWidget.selectResult,getX()+28,getY(),!canCraft(inventoryMap,ings));
 
             for(int i=0;i<ings.size();i++){
-                renderItemStack(guiGraphics,ings.get(i).getItems()[0], this.getX() + i * scrollWidget.internal, 15+this.getY() ,!containIng(inventoryMap,ings.get(i)));
+                renderItemStack(guiGraphics,ings.get(i).getItems()[0], getX()+i * scrollWidget.internal, getY()+18 ,!containIng(inventoryMap,ings.get(i)));
             }
+            bt.render(guiGraphics,x,y,t);
+            guiGraphics.pose().popPose();
         }
 
         @Override
-        protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+        protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) { }
 
+        @Override
+        public List<? extends GuiEventListener> children() {
+            return List.of(bt);
         }
     }
 
     public void renderItemStack(GuiGraphics guiGraphics,ItemStack it,int x,int y,boolean overLay){
 
         guiGraphics.pose().pushPose();
-        if(overLay) guiGraphics.setColor(0.3F,  0,0,1F);
+        if(overLay) guiGraphics.setColor(1F,  0.5F,0.5F,1F);
         guiGraphics.renderItem(it,x,y);
         guiGraphics.setColor(1F,  1,1,1F);
         guiGraphics.renderItemDecorations(minecraft.font,it,x,y);
@@ -559,9 +539,9 @@ public class slotsScreen extends AbstractContainerScreen<terraBag> {
     }
 
 
-    private void refreshInventoryMap(Inventory inventory){
+    private void refreshInventoryMap(List<ItemStack> haveItem){
         inventoryMap.clear();
-        for(ItemStack itemStack : inventory.items){
+        for(ItemStack itemStack : haveItem){
             Item item = itemStack.getItem();
             if (inventoryMap.containsKey(item)) {
                 int c = inventoryMap.get(item);

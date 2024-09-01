@@ -1,5 +1,6 @@
 package com.theXu.terracraft0323.item.terraJewelry.boot;
 
+import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.effect.ModEffects;
 import com.theXu.terracraft0323.item.terraJewelry.jewelryItem;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.awt.*;
 import java.util.List;
@@ -20,9 +22,12 @@ public class bootBase extends jewelryItem {
         super(properties);
         this.moveSpeed = moveSpeed;
     }
+
     @Override
-    public void jewelryTick(Entity pEntity) {
-        ((LivingEntity) pEntity).addEffect(new MobEffectInstance(ModEffects.TAI_LA_XIE_EFFECT,25));
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
+        if(slotId<41) return;
+        ((LivingEntity) entity).addEffect(new MobEffectInstance(ModEffects.TAI_LA_XIE_EFFECT,25));
 
     }
 
