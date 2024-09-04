@@ -1,18 +1,14 @@
 package com.theXu.terracraft0323.ui.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-
-import java.awt.*;
 
 public class itemInfoScreen  {
 

@@ -167,6 +167,10 @@
 
   "item.terracraft0323.mod_menu": "菜单",
 
+  "item.minecraft.potion.effect.cave_show_potion": "洞穴探险药水",
+  "item.minecraft.potion.effect.iron_potion": "铁皮药水",
+
+
   "item.terracraft0323.sword.yong_ye_ren": "永夜刃",
   "item.terracraft0323.sword.tai_la_ren": "泰拉刃",
   "item.terracraft0323.sword.ice_sword": "冰雪刃",
@@ -179,6 +183,8 @@
   "item.terracraft0323.jewelry.tai_la_xue": "泰拉靴",
   "item.terracraft0323.jewelry.jin_ma_zhang": "金马掌",
 
-  "entity.terracraft0323.ke_yan":"克苏鲁之眼"
+  "entity.terracraft0323.ke_yan":"克苏鲁之眼",
+
+  "effect.terracraft0323.cave_effect": "洞穴透视"
 
 }

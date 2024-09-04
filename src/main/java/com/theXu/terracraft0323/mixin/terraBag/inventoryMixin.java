@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.Nameable;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -62,6 +63,9 @@ public abstract class inventoryMixin implements Container, Nameable {
 
     }
 
+
+
+
     /**
      * @author thexu
      * @reason addJewelry
@@ -97,6 +101,10 @@ public abstract class inventoryMixin implements Container, Nameable {
         if (abilityRegister.get() != null) {
             abilityRegister.get().canFly = false;
         }
+
+
+
+
     }
 
 

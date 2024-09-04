@@ -1,8 +1,7 @@
 package com.theXu.terracraft0323.network.packet.menuhandler;
 
 import com.theXu.terracraft0323.NeoMod;
-import com.theXu.terracraft0323.mixinhelper.BowDashMixinHelper;
-import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
+import com.theXu.terracraft0323.magicStoreCraft.magicStorageMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
@@ -40,7 +39,7 @@ public class serverMenuPacket implements CustomPacketPayload {
         }
         context.player().openMenu(
                 new SimpleMenuProvider(
-                        (containerId, playerInventory, p) -> new terraBag(containerId, playerInventory),
+                        (containerId, playerInventory, p) -> new magicStorageMenu(containerId, playerInventory),
                         Component.translatable("menu.title.terraInventory")
                 )
         );

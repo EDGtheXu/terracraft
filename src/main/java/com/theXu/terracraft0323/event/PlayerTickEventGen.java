@@ -1,12 +1,10 @@
 package com.theXu.terracraft0323.event;
 
 import com.theXu.terracraft0323.NeoMod;
-import com.theXu.terracraft0323.ServerManager;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.ability.playerLevel.playerLevel;
+import com.theXu.terracraft0323.magicStoreCraft.magicStoreSaver;
 import com.theXu.terracraft0323.recipe.terraRecipe;
-import com.theXu.terracraft0323.ui.jewelrySlots.jewelryInventorySaver;
-import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.server.level.ServerPlayer;
@@ -103,9 +101,14 @@ public class PlayerTickEventGen {
             //terraBag.jis = jewelryInventorySaver.getServerState(ServerManager.getServerInstance());
             //terraBag.tick(player);
 
+
             //制作栏初始化
             if(event.getLevel().isClientSide)
                 terraRecipe.initRecipe();
+            else{
+                magicStoreSaver.get(event.getLevel());
+            }
+
 
         }
     }

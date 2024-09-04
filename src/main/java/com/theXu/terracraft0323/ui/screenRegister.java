@@ -1,6 +1,6 @@
 package com.theXu.terracraft0323.ui;
 
-import com.theXu.terracraft0323.ui.jewelrySlots.slotsScreen;
+import com.theXu.terracraft0323.magicStoreCraft.magicStorageScreen;
 import com.theXu.terracraft0323.ui.mainMenu.mainMenuScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,7 +16,7 @@ public class screenRegister {
     @SubscribeEvent
     private static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(modMenuType.MAIN_MENU.get(), mainMenuScreen::new);
-        event.register(modMenuType.TERRA_MENU.get(),slotsScreen::new);
+        event.register(modMenuType.TERRA_MENU.get(), magicStorageScreen::new);
     }
 
 

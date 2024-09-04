@@ -11,26 +11,28 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-public class magicStoreData extends SavedData {
+public class magicStoreSaver extends SavedData {
     /**
      * 保存数据的名称常量。
      * 注意这个NAME应该保持是唯一的，不要重复。
      */
-    public static final String NAME = "mod_level_save_data";
+    public static final String NAME = "magic_storage";
     /**
      * 用于存储物品堆栈的栈结构。
      */
-    private final Stack<ItemStack> itemStacks = new Stack<>();
+    public static final List<ItemStack> itemStacks = new ArrayList<>();
     /**
      * 创建一个新的ModLevelSaveData实例。
      *
      * @return 新创建的ModLevelSaveData实例。
      */
-    public static magicStoreData create() {
+    public static magicStoreSaver create() {
         System.out.println("new");
-        return new magicStoreData();
+        return new magicStoreSaver();
     }
     /**
      * 将物品堆栈放入栈中。
@@ -38,7 +40,10 @@ public class magicStoreData extends SavedData {
      * @param item 要放入栈中的物品堆栈。
      */
     public void putItem(ItemStack item) {
-        itemStacks.push(item);
+        itemStacks.add(item);
+
+        itemStacks.sort(Comparator.comparing(a -> a.getDisplayName().getString())
+                );
 
         setDirty();
     }
@@ -47,12 +52,14 @@ public class magicStoreData extends SavedData {
      *
      * @return 如果栈为空，则返回空气物品堆栈；否则返回栈顶的物品堆栈。
      */
-    public ItemStack getItem() {
+    public ItemStack removeItem(int index) {
         if (itemStacks.isEmpty()) {
             return new ItemStack(Items.AIR);
         }
         setDirty();
-        return itemStacks.pop();
+        ItemStack it = itemStacks.get(index);
+        itemStacks.remove(it);
+        return it;
     }
     /**
      * 将ModLevelSaveData的数据保存到CompoundTag中。
@@ -79,14 +86,14 @@ public class magicStoreData extends SavedData {
      * @param nbt 包含数据的CompoundTag。
      * @return 加载了数据的ModLevelSaveData实例。
      */
-    public magicStoreData load(CompoundTag nbt, HolderLookup.Provider registries) {
-        magicStoreData data = this.create();
+    public magicStoreSaver load(CompoundTag nbt, HolderLookup.Provider registries) {
+        magicStoreSaver data = this.create();
         ListTag listNBT = (ListTag) nbt.get("list");
         if (listNBT != null) {
             for (Tag value : listNBT) {
                 CompoundTag tag = (CompoundTag) value;
                 ItemStack itemStack = ItemStack.parseOptional(registries,tag.getCompound("itemstack"));
-                itemStacks.push(itemStack);
+                itemStacks.add(itemStack);
             }
         }
         System.out.println("load");
@@ -98,8 +105,8 @@ public class magicStoreData extends SavedData {
      * @param tag 包含数据的CompoundTag。
      * @return 解码后的ModLevelSaveData实例。
      */
-    public static magicStoreData decode(CompoundTag tag, HolderLookup.Provider registries){
-        magicStoreData modLevelSaveData = magicStoreData.create();
+    public static magicStoreSaver decode(CompoundTag tag, HolderLookup.Provider registries){
+        magicStoreSaver modLevelSaveData = magicStoreSaver.create();
         modLevelSaveData.load(tag,registries);
         return modLevelSaveData;
     }
@@ -110,14 +117,14 @@ public class magicStoreData extends SavedData {
      * @return 与指定世界关联的ModLevelSaveData实例。
      * @throws RuntimeException 如果尝试从客户端世界获取数据，则抛出运行时异常。
      * **/
-    public static magicStoreData get(Level worldIn) {
+    public static magicStoreSaver get(Level worldIn) {
         if (!(worldIn instanceof ServerLevel)) {
             throw new RuntimeException("Attempted to get the data from a client world. This is wrong.");
         }
         ServerLevel world = worldIn.getServer().getLevel(ServerLevel.OVERWORLD);
         DimensionDataStorage dataStorage = world.getDataStorage();
 
-        magicStoreData t = dataStorage.computeIfAbsent(new Factory<magicStoreData>(magicStoreData::create, magicStoreData::decode), magicStoreData.NAME);
+        magicStoreSaver t = dataStorage.computeIfAbsent(new Factory<magicStoreSaver>(magicStoreSaver::create, magicStoreSaver::decode), magicStoreSaver.NAME);
         System.out.println(t);
         return t;
     }

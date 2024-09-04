@@ -2,8 +2,8 @@ package com.theXu.terracraft0323.effect;
 
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.effect.custom.NormalEffect;
+import com.theXu.terracraft0323.effect.custom.normalAttributeEffevt;
 import com.theXu.terracraft0323.effect.hurt.po_xiao;
-import com.theXu.terracraft0323.effect.move.fastMove;
 import com.theXu.terracraft0323.effect.move.frozen;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -27,12 +27,13 @@ public class ModEffects {
     public static final DeferredHolder<MobEffect,MobEffect>  SHEEP_EFFECT = registerDeferredHolder("sheep_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0x80F18BEB));
     public static final DeferredHolder<MobEffect,MobEffect>  ANTIDOTE_EFFECT =registerDeferredHolder("antidote_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0x80FFFFFF));
 
+
+
     public static final DeferredHolder<MobEffect,MobEffect>  PO_XIAO =registerDeferredHolder("po_xiao_effect",()->new po_xiao(MobEffectCategory.HARMFUL,0x80FFFFFF,1));
     public static final DeferredHolder<MobEffect,MobEffect>  ICE_FROZEN =registerDeferredHolder("frozen_effect",()->new frozen(MobEffectCategory.HARMFUL,0x80FFFFFF));
-    public static final DeferredHolder<MobEffect,MobEffect>  TAI_LA_XIE_EFFECT =registerDeferredHolder("tai_la_xie_effect",()->new fastMove(MobEffectCategory.BENEFICIAL,"tai_la_xie_move_speed",2f));
+    public static final DeferredHolder<MobEffect,MobEffect>  CAVE_SHOW =registerDeferredHolder("cave_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0xFFFFFF00));
+    public static final DeferredHolder<MobEffect,MobEffect>  IRON_EFFECT =registerDeferredHolder("iron_effect",()->new normalAttributeEffevt(MobEffectCategory.BENEFICIAL,0xBF8f008F,Attributes.ARMOR,"iron",4f, AttributeModifier.Operation.ADD_VALUE));
 
-    public static final DeferredHolder<MobEffect,MobEffect>  SAFE_FALL =registerDeferredHolder("safe_fall_effect",()->new NormalEffect(MobEffectCategory.BENEFICIAL,0)
-            .addAttributeModifier(Attributes.SAFE_FALL_DISTANCE, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"safe_fall"),1020, AttributeModifier.Operation.ADD_VALUE));
 
 
 

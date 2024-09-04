@@ -3,11 +3,13 @@ package com.theXu.terracraft0323.item.terraSword;
 
 import com.theXu.terracraft0323.item.tiers.modTiers;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -23,24 +25,14 @@ public abstract class terraria_sword_base extends SwordItem {
     protected int animDur = 200;
     private boolean ok;
     public int damage;
-    /*
-    public terraria_sword_base() {
-        super(new modTiers(), new Item.Properties()
-                //.rarity()
-                .fireResistant()
-                .setNoRepair()
 
-                );
-        ok = true;
-
-    }
-*/
     public terraria_sword_base(int damage) {
         super(new modTiers(),  new Item.Properties()
                 //.rarity(Rarity.RARE)
                 .fireResistant()
                 .component(DataComponents.UNBREAKABLE,new Unbreakable(true))
-                .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(new modTiers(),damage,50))
+                .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(new modTiers(),damage,10))
+
         );
         this.damage = damage;
         ok = true;

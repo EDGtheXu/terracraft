@@ -177,6 +177,9 @@
 
   "item.terracraft0323.mod_menu": "mod menu",
 
+  "item.minecraft.potion.effect.cave_show_potion": "cave show potion",
+  "item.minecraft.potion.effect.iron_potion": "iron potion",
+
   "item.terracraft0323.sword.yong_ye_ren": "yong ye ren",
   "item.terracraft0323.sword.tai_la_ren": "tai la ren",
   "item.terracraft0323.sword.ice_sword": "ice_sword",
@@ -189,6 +192,10 @@
   "item.terracraft0323.jewelry.tai_la_xue": "tai la xue",
   "item.terracraft0323.jewelry.jin_ma_zhang": "jin ma zhang",
 
-  "entity.terracraft0323.ke_yan":"ke su lu zhi yan"
+  "entity.terracraft0323.ke_yan":"ke su lu zhi yan",
+
+  "effect.terracraft0323.cave_effect": "cave show"
+
+
 
 }

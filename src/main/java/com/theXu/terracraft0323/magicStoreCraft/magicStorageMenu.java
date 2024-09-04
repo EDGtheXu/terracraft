@@ -1,21 +1,19 @@
-package com.theXu.terracraft0323.ui.jewelrySlots;
+package com.theXu.terracraft0323.magicStoreCraft;
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
 
-import com.theXu.terracraft0323.ServerManager;
+import com.mojang.datafixers.util.Pair;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
 import com.theXu.terracraft0323.item.terraJewelry.jewelryItem;
-import com.theXu.terracraft0323.recipe.terraRecipe;
+import com.theXu.terracraft0323.network.packet.terraCraftPacket.serverSavePacket;
 import com.theXu.terracraft0323.tag.ModTags;
+import com.theXu.terracraft0323.ui.jewelrySlots.jewelryInventorySaver;
+import com.theXu.terracraft0323.ui.jewelrySlots.terraAmorSlot;
+import com.theXu.terracraft0323.ui.jewelrySlots.terraEquipmentSlot;
 import com.theXu.terracraft0323.ui.modMenuType;
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractScrollWidget;
-import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,19 +22,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.network.PacketDistributor;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public class terraBag extends AbstractContainerMenu {
+public class magicStorageMenu extends AbstractContainerMenu {
     public static final int CONTAINER_ID = 0;
     public static final int RESULT_SLOT = 0;
     public static final int CRAFT_SLOT_START = 1;
@@ -66,13 +59,13 @@ public class terraBag extends AbstractContainerMenu {
     public Player owner ;
     public static jewelryInventorySaver jis;//饰品栏空间
 
-    public terraBag(int pContainerId, Inventory inv) {
+    public magicStorageMenu(int pContainerId, Inventory inv) {
         this(pContainerId,inv, new SimpleContainerData(27));
 
 
     }
 
-    public terraBag(int pContainerId, Inventory playerInventory, ContainerData data) {
+    public magicStorageMenu(int pContainerId, Inventory playerInventory, ContainerData data) {
         super(modMenuType.TERRA_MENU.get(), pContainerId);
 
 //        this.addSlot(new ResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 154, 28));
@@ -273,10 +266,18 @@ public class terraBag extends AbstractContainerMenu {
                     return ItemStack.EMPTY;
                 }
             } else if (index >= 9 && index < 36) {
+
+                if(Minecraft.getInstance().isSameThread()) {
+                    PacketDistributor.sendToServer(new serverSavePacket(index));
+
+                }
+                return ItemStack.EMPTY;
+                /*
                 if (!this.moveItemStackTo(itemstack1, 36, 45, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index >= 36 && index < 45) {
+                */
+            } else if (index >= 36 && index < 42+7) {
                 if (!this.moveItemStackTo(itemstack1, 9, 36, false)) {
                     return ItemStack.EMPTY;
                 }

@@ -26,8 +26,6 @@ public class bootBase extends jewelryItem {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         super.inventoryTick(stack, level, entity, slotId, isSelected);
-        if(slotId<41) return;
-        ((LivingEntity) entity).addEffect(new MobEffectInstance(ModEffects.TAI_LA_XIE_EFFECT,25));
 
     }
 

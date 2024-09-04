@@ -19,6 +19,10 @@ public class ModPotions {
     public static Holder<Potion>  SPIDER_POTION =  registerPotion("spider_potion",3600,0,ModEffects.SPIDER_EFFECT);
     public static Holder<Potion>  SHEEP_POTION = registerPotion("sheep_potion",2000,0,ModEffects.SHEEP_EFFECT);
     public static Holder<Potion>  ANTIDOTE_POTION = registerPotion("antidote_potion",2000,0,ModEffects.ANTIDOTE_EFFECT);
+    public static Holder<Potion>  CAVE_SHOW_POTION = registerPotion("cave_show_potion",2000,0,ModEffects.CAVE_SHOW);
+    public static Holder<Potion>  IRON_POTION = registerPotion("iron_potion",2000,0,ModEffects.IRON_EFFECT);
+
+
 
     public static void register(IEventBus eventBus){
         POTIONS.register(eventBus);

@@ -19,7 +19,6 @@ public class ModtemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngen\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         tag(ItemTags.CAT_FOOD)
                 .add(ModItems.CHEESE_BERGER.get());
 

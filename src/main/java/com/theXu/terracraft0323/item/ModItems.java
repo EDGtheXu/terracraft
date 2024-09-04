@@ -12,9 +12,13 @@ import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
 import com.theXu.terracraft0323.item.terraSword.yongYeSword.yong_ye_ren;
 import com.theXu.terracraft0323.item.terraSword.xingNu.xing_nu;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tiers;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -64,6 +68,8 @@ public class ModItems {
     public static final DeferredItem<Item> FU = registerItem("fu", FuItem::new);
 
 
+
+
 //terraCraft
     //菜单
 
@@ -96,19 +102,51 @@ public class ModItems {
 
     //饰品
     public static final DeferredItem<Item>  TAI_LA_XUE = registerItem("jewelry/tai_la_xue",
-            ()->new bootBase(new Item.Properties().rarity(Rarity.RARE),2));
+            ()->new bootBase(new Item.Properties().rarity(Rarity.RARE)
+                    .attributes(ItemAttributeModifiers.builder()
+                            .add(
+                                    Attributes.MOVEMENT_SPEED,
+                                    new AttributeModifier(
+                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_tailaxue"),
+                                            0.2,
+                                            AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.ARMOR).build()
+
+                    ),
+                    2));
 
 
 
 
     public static final DeferredItem<Item>  JIN_MA_ZHANG= registerItem("jewelry/jin_ma_zhang",
             ()-> new jinMaZhang(new Item.Properties()
+                    .attributes(ItemAttributeModifiers.builder()
+                            .add(
+                                    Attributes.SAFE_FALL_DISTANCE,
+                                    new AttributeModifier(
+                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_jinmazhang"),
+                                            1022,
+                                            AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.ARMOR).build()
 
+                    )
             ));
+
+
 
   //翅膀
     public static final DeferredItem<Item>  TIAN_JIE_XING_PAN = registerItem("jewelry/tian_jie_xing_pan",
             ()-> new flyBase(new Item.Properties()
+                    .attributes(ItemAttributeModifiers.builder()
+                            .add(
+                                    Attributes.ARMOR,
+                                    new AttributeModifier(
+                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_armor"),
+                                            10,
+                                            AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.ARMOR).build()
+
+                    )
                     .rarity(Rarity.EPIC),4.5f,2f,3f));
 
 

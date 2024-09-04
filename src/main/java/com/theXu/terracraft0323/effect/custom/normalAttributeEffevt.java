@@ -1,20 +1,20 @@
-package com.theXu.terracraft0323.effect.move;
+package com.theXu.terracraft0323.effect.custom;
 
 import com.theXu.terracraft0323.NeoMod;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
-public class frozen extends MobEffect {
+public class normalAttributeEffevt extends MobEffect {
 
-    public frozen(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, 0);
-
-        addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"frozen2"),20F, AttributeModifier.Operation.ADD_VALUE);
-
+    public normalAttributeEffevt(MobEffectCategory pCategory, int color,Holder< Attribute> attributeHolder, String path,float amount, AttributeModifier.Operation operation) {
+        super(pCategory, color);
+        addAttributeModifier(attributeHolder, ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,path),amount, operation);
     }
 
     @Override
