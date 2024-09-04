@@ -1,18 +1,14 @@
 package com.theXu.terracraft0323.ui.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.theXu.terracraft0323.ui.jewelrySlots.terraBag;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-
-import java.awt.*;
 
 public class itemInfoScreen  {
 
@@ -36,13 +32,12 @@ public class itemInfoScreen  {
 
 
         //饰品
-        var jewels = terraBag.jis.itemHandler;
-        int slots = terraBag.jis.itemHandler.getSlots();
-        for(int i=0;i< slots;i++){
+
+        for(int i=0;i< 7;i++){
             int x1 = minecraft.getWindow().getGuiScaledWidth()-20;
             int y1 = y - ((8 - i)*18);
             //guiGraphics.hLine(x,x+18,y1+18,Color.MAGENTA.getRGB());
-            guiGraphics.renderItem(jewels.getStackInSlot(i),x1,y1);
+            guiGraphics.renderItem(player.getInventory().getItem(41+i),x1,y1);
         }
 
         //装备

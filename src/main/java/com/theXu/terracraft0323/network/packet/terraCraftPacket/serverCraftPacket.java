@@ -1,8 +1,7 @@
 package com.theXu.terracraft0323.network.packet.terraCraftPacket;
 
-import com.mojang.logging.LogUtils;
 import com.theXu.terracraft0323.NeoMod;
-import com.theXu.terracraft0323.ServerManager;
+import com.theXu.terracraft0323.magicStoreCraft.magicStoreSaver;
 import com.theXu.terracraft0323.recipe.craftHelper;
 import com.theXu.terracraft0323.recipe.terraRecipe;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,6 +13,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class serverCraftPacket implements CustomPacketPayload {
 
     public int recipeID;
+    public int recipeType;
 
 
     public static final Type<serverCraftPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "packet.docraft"));
@@ -22,21 +22,23 @@ public class serverCraftPacket implements CustomPacketPayload {
 
     private void write(FriendlyByteBuf buf) {
         buf.writeInt(this.recipeID);
+        buf.writeInt(this.recipeType);
     }
 
     public serverCraftPacket(FriendlyByteBuf buf) {
         this.recipeID = buf.readInt();
-
+        this.recipeType = buf.readInt();
     }
 
-    public serverCraftPacket(int id){
+    public serverCraftPacket(int id,int type){
         this.recipeID = id;
+        this.recipeType = type;
     }
 
     public static void receive(final serverCraftPacket data, final IPayloadContext context) {
 
-        craftHelper helper = new craftHelper(context.player());
-        helper.doCraft(terraRecipe.getInstance().entrySet().stream().toList().get(data.recipeID));
+        craftHelper helper = new craftHelper(context.player(),magicStoreSaver.itemStacks);
+        helper.doCraft(terraRecipe.getRecipeType(terraRecipe.catalogMenu.values()[data.recipeType]).entrySet().stream().toList().get(data.recipeID));
 
 
     }

@@ -1,5 +1,7 @@
 package com.theXu.terracraft0323.recipe;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -13,15 +15,18 @@ public class craftHelper {
     Player player;
     Inventory inventory;
 
+    //拥有的物品
+    List<ItemStack> haveItem = new ArrayList<>();
     public Map<Item,Integer> inventoryMap = new HashMap<>();
     public Map<Item, List<ItemStack>> inventoryItemStackMap = new HashMap<>();
+    private List<ItemStack> additional;
 
-
-
-    public craftHelper(Player player){
+    public craftHelper(Player player,List<ItemStack> additional){
         this.player = player;
         this.inventory = player.getInventory();
-
+        haveItem.addAll(inventory.items);
+        haveItem.addAll(additional);
+        this.additional = additional;
     }
 
 
@@ -80,17 +85,37 @@ public class craftHelper {
                     cost.get(i).setCount(cost.get(i).getCount() - costCount.get(i));
                 }
 
+                ItemStack added = result.copy();
+                added.onCraftedBy(player.level(),player,1);
 
-                inventory.add(result.copy());
-                System.out.println("craft");
+
+                if(player.addItem(added)){
+                    player.level()
+                            .playSound(
+                                    null,
+                                    player.getX(),
+                                    player.getY(),
+                                    player.getZ(),
+                                    SoundEvents.ITEM_PICKUP,
+                                    SoundSource.PLAYERS,
+                                    0.2F,
+                                    ((player.getRandom().nextFloat() - player.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F
+                            );
+                }else{
+                    player.drop(added,false);
+                }
+
             }
         }
 
     }
 
-    private void refreshInventoryMap(){
+    public void refreshInventoryMap(){
         inventoryMap.clear();
-        for(ItemStack itemStack : inventory.items){
+        haveItem.clear();
+        haveItem.addAll(inventory.items);
+        haveItem.addAll(additional);
+        for(ItemStack itemStack : haveItem){
             Item item = itemStack.getItem();
             if (inventoryMap.containsKey(item)) {
                 int c = inventoryMap.get(item);
@@ -109,5 +134,29 @@ public class craftHelper {
     }
 
 
+    public boolean canCraft(List<Ingredient> ingredients){
+        if(ingredients==null)return false;
+        for(Ingredient in : ingredients){
+            boolean ifContain = false;
+            for(ItemStack needIt : in.getItems()){
+                Integer haveCount = inventoryMap.get(needIt.getItem());
+                if(haveCount!=null && haveCount  >= needIt.getCount()){
+                    ifContain = true;
+                    break;
+                }
+            }
+            if(!ifContain)return false;
+        }
+        return true;
+    }
+
+    public boolean containIng(Ingredient ingredients){
+
+        for(ItemStack it : ingredients.getItems()){
+            Integer sum = inventoryMap.get(it.getItem());
+            if(sum!=null && sum >= it.getCount()) return true;
+        }
+        return false;
+    }
 
 }

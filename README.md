@@ -57,11 +57,14 @@ NeoForged Discord: https://discord.neoforged.net/
 
         生物类
             BOSS
-            NPC
+            NPC*
             召唤物
 
         效果类
             BUFF
             DEBUFF
+        
+        魔法存储
+
         
 

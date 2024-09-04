@@ -42,6 +42,9 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
 		}
 	}
 
+
+
+
 //	@Inject(at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/screen/ScreenHandler;canInsertIntoSlot(Lnet/minecraft/item/ItemStack;Lnet/minecraft/screen/slot/Slot;)Z"), method = "mouseReleased",cancellable = true)
 //	private void init1(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir){
 //		Slot slot = this.getSlotAt(mouseX, mouseY);

@@ -6,6 +6,7 @@ import com.theXu.terracraft0323.network.packet.S2C.BellSoundS2CPacket;
 import com.theXu.terracraft0323.network.packet.S2C.NeverGonnaS2CPacket;
 import com.theXu.terracraft0323.network.packet.menuhandler.serverMenuPacket;
 import com.theXu.terracraft0323.network.packet.terraCraftPacket.serverCraftPacket;
+import com.theXu.terracraft0323.network.packet.terraCraftPacket.serverSavePacket;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -110,6 +111,15 @@ public class ModMessage {
                 new DirectionalPayloadHandler<serverCraftPacket>(
                         null,
                         serverCraftPacket::receive
+                )
+        );
+
+        registrar.playBidirectional(
+                serverSavePacket.TYPE,
+                serverSavePacket.STREAM_CODEC,
+                new DirectionalPayloadHandler<serverSavePacket>(
+                        null,
+                        serverSavePacket::receive
                 )
         );
 

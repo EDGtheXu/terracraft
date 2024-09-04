@@ -4,8 +4,8 @@ import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.block.custome.PotatoTNTBlock;
 import com.theXu.terracraft0323.block.custome.PotatoTNTPrepareBlock;
 import com.theXu.terracraft0323.block.custome.SoundBlock;
-import com.theXu.terracraft0323.block.magicStoreCraft.magicStoreBlock;
 import com.theXu.terracraft0323.item.ModItems;
+import com.theXu.terracraft0323.magicStoreCraft.magicBlock;
 import com.theXu.terracraft0323.sound.ModSounds;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -42,10 +42,13 @@ public class ModBlock {
 
 
 
+
+
+
     //TerraCraft
 
     public static final DeferredBlock<Block> MAGIC_STORE = registerBlock("magic_store",
-            magicStoreBlock::new);
+            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(ModSounds.SOUND_BLOCK_SOUNDS)));
 
 
 

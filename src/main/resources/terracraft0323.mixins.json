@@ -4,8 +4,6 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ExampleMixin",
-    "enchantmentitemmixin.windcharge.WindChargeItemMixin",
-    "item.lead.LeashableMixin",
     "effectMixin.TeleportEffectMixin",
     "effectMixin.antidote.LivingEntityMixin",
     "effectMixin.canclimb.LivingEntityMixin",
@@ -76,6 +74,8 @@
     "enchantmentitemmixin.slippery.UnPickUpAbleItemMixin",
     "enchantmentitemmixin.throwableaxe.AxeItemMixin",
     "enchantmentitemmixin.throwableaxe.ItemEntityMixin",
+    "enchantmentitemmixin.windcharge.WindChargeItemMixin",
+    "item.lead.LeashableMixin",
     "itemmixin.BowDashMixin",
     "itemmixin.KaoFishMixin",
     "itemmixin.MathModeMixin",
@@ -95,7 +95,10 @@
     "mobmixin.goatdashforever.GoatBrainMixin",
     "mobmixin.llamaspitforever.LlamaEntity_SpitRevengeGoalMixin",
     "mobmixin.llamaspitforever.LlamaEntityMixin",
-    "mobmixin.pandaeatswitch.PandaEntityMixin"
+    "mobmixin.pandaeatswitch.PandaEntityMixin",
+    "terraBag.crafingMenuMixin",
+    "terraBag.inventoryMenuMixin",
+    "terraBag.inventoryMixin"
   ],
   "client": [
     "effectMixin.sheep.PlayerEntityRendererMixin",
@@ -104,7 +107,8 @@
     "itemmixin.entityitemrenderer.irongolemitemrenderer.ItemRendererMixin",
     "itemmixin.entityitemrenderer.lightningitemrenderer.ItemRendererMixin",
     "itemmixin.entityitemrenderer.llamaitemrenderer.ItemRendererMixin",
-    "itemmixin.entityitemrenderer.villageritemrenderer.ItemRendererMixin"
+    "itemmixin.entityitemrenderer.villageritemrenderer.ItemRendererMixin",
+    "terraBag.creativeModeInventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

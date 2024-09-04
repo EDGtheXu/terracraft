@@ -65,7 +65,7 @@ public class ModTabs {
             CREATIVE_TABS.register("terracraft0323", ()-> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.terracraft0323"))
                     .withTabsBefore(CreativeModeTabs.COMBAT)
-                    .icon(()-> ModItems.MAFISH.get().getDefaultInstance())
+                    .icon(()-> ModItems.TAI_LA_REN.get().getDefaultInstance())
                     .displayItems((itemDisplayParameters, output) -> {
                         //在这里添加item
 
