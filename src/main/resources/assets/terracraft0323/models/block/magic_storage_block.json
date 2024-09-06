@@ -1,6 +1,9 @@
 {
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
+  "textures": {
+    "layer0": "terracraft0323:block/magic_storage_block"
+  },
   "texture_size": [
     70,
     70
