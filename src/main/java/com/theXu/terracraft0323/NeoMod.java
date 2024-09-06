@@ -20,6 +20,7 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(NeoMod.MODID)
@@ -44,6 +45,12 @@ public class NeoMod
         ModAttributes.AttributesTypes.register(modEventBus);
 
 
+
+
         modContainer.registerConfig(ModConfig.Type.COMMON,Config.SPEC);
+
+
+
+
     }
 }

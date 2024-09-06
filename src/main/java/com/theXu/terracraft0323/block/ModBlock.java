@@ -5,7 +5,7 @@ import com.theXu.terracraft0323.block.custome.PotatoTNTBlock;
 import com.theXu.terracraft0323.block.custome.PotatoTNTPrepareBlock;
 import com.theXu.terracraft0323.block.custome.SoundBlock;
 import com.theXu.terracraft0323.item.ModItems;
-import com.theXu.terracraft0323.magicStoreCraft.magicBlock;
+import com.theXu.terracraft0323.magicStoreCraft.geo.block.magicBlock;
 import com.theXu.terracraft0323.sound.ModSounds;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -47,17 +47,21 @@ public class ModBlock {
 
     //TerraCraft
 
-    public static final DeferredBlock<Block> MAGIC_STORE = registerBlock("magic_store",
-            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(ModSounds.SOUND_BLOCK_SOUNDS)));
+    public static final DeferredBlock<Block> MAGIC_STORE = registerSingleBlock("magic_storage_block",
+            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().sound(ModSounds.SOUND_BLOCK_SOUNDS)));
+
+/*
+    public static final DeferredBlock<Block> MAGIC_STORE = registerSingleBlock("magic_storage_block",
+            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().sound(ModSounds.SOUND_BLOCK_SOUNDS)));
+*/
 
 
 
 
-
-
-
-
-
+    public static DeferredBlock<Block> registerSingleBlock(String name, Supplier<Block> blockSupplier) {
+        DeferredBlock<Block> register = BLOCKS.register(name, blockSupplier);
+        return register;
+    }
 
 
     private static DeferredBlock<Block> registerBlock(String name, Supplier<Block> blockSupplier) {
@@ -77,8 +81,6 @@ public class ModBlock {
         ModItems.ITEMS.register(name,()-> new BlockItem(deferredBlock.get(),properties));
         return  deferredBlock;
     }
-
-
 
 
 

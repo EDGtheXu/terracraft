@@ -1,6 +1,7 @@
 package com.theXu.terracraft0323.item;
 
 import com.theXu.terracraft0323.block.ModBlock;
+import com.theXu.terracraft0323.event.registerRenderEvent;
 import com.theXu.terracraft0323.item.terraBow.shenShengLianNu.shen_sheng_lian_nu;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
 import net.minecraft.core.registries.Registries;
@@ -82,8 +83,8 @@ public class ModTabs {
                         output.accept(((shen_sheng_lian_nu)ModItems.SHEN_SHENG_LIAN_NU.get()).createStack());
 
                         //magic store craft
-                        output.accept(ModBlock.MAGIC_STORE.get());
-
+                        output.accept(ModItems.MAGIC_BLOCK_ITEM.get());
+                        //output.accept(ModBlock.MAGIC_STORE_BLOCK.get());
 
 
                         //jewelry

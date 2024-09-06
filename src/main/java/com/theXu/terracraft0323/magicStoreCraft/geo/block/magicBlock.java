@@ -1,4 +1,4 @@
-package com.theXu.terracraft0323.magicStoreCraft;
+package com.theXu.terracraft0323.magicStoreCraft.geo.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -6,23 +6,46 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
 
 public class magicBlock extends BaseEntityBlock {
     public magicBlock(Properties properties) {
         super(properties);
+
+    }
+
+    @Override
+    protected void spawnDestroyParticles(Level level, Player player, BlockPos pos, BlockState state) {
+        super.spawnDestroyParticles(level, player, pos, state);
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
+
         return null;
     }
 
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        //return Block.box(0,0,0,0,0,0);
+        return Block.box(0,0,0,16,16,16);
+    }
 
     /**
      * 当玩家使用该方块时触发的交互逻辑。这里如果是空手就从DATA中获得物品，如果手持物品就放入到DATA中去。
@@ -41,23 +64,7 @@ public class magicBlock extends BaseEntityBlock {
 
         if(!pLevel.isClientSide){
 
-            System.out.println("use");
             pPlayer.openMenu(this.getMenuProvider(pState,pLevel,pPos),pPos);
-
-/*
-            magicStoreData data  = magicStoreData.get(pLevel);
-            ItemStack mainHandItem = pPlayer.getMainHandItem();
-
-            if(mainHandItem.isEmpty()){
-                ItemStack itemStack = data.getItem();
-                pPlayer.setItemInHand(InteractionHand.MAIN_HAND,itemStack);
-            }else{
-                ItemStack itemStack =mainHandItem.copy();
-                mainHandItem.shrink(mainHandItem.getCount());
-                data.putItem(itemStack);
-            }
-            */
-
         }
         return ItemInteractionResult.SUCCESS;
     }
@@ -65,6 +72,8 @@ public class magicBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+
         return new magicStoreBlockEntity(blockPos,blockState);
     }
+
 }

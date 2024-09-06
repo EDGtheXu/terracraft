@@ -1,6 +1,8 @@
 package com.theXu.terracraft0323.item;
 
 import com.theXu.terracraft0323.NeoMod;
+import com.theXu.terracraft0323.block.ModBlock;
+import com.theXu.terracraft0323.magicStoreCraft.geo.item.magicStorageItem;
 import com.theXu.terracraft0323.item.custom.*;
 import com.theXu.terracraft0323.item.menuItem.menuItem;
 import com.theXu.terracraft0323.item.terraBow.shenShengLianNu.shen_sheng_lian_nu;
@@ -18,7 +20,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -26,6 +27,7 @@ import java.util.function.Supplier;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(NeoMod.MODID);
+
 
     public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish",()->
             new Item(new Item.Properties().stacksTo(1).fireResistant().food(ModFoods.Mafish)));
@@ -71,6 +73,15 @@ public class ModItems {
 
 
 //terraCraft
+
+
+    //blockitem
+    public static final DeferredItem<Item> MAGIC_BLOCK_ITEM = registerItem("magic_storage_block",
+        ()->new magicStorageItem(ModBlock.MAGIC_STORE.get()));
+
+
+
+
     //菜单
 
     public static final DeferredItem<Item> MAIN_MENU = registerItem("main_menu",
@@ -165,5 +176,7 @@ public class ModItems {
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
         return ITEMS.register(name,itemSupplier);
     }
+
+
 
 }
