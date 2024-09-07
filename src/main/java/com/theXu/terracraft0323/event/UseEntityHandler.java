@@ -25,9 +25,10 @@ public class UseEntityHandler  {
         Level level = event.getLevel();
         Player player = event.getEntity();
         Entity target = event.getTarget();
-        interact(player,level,hand, target);
+        //interact(player,level,hand, target);
     }
 
+/*
     public static void interact(Player player, Level world, InteractionHand hand, Entity entity) {
         if(Config.isQinNa()) {
             if (entity instanceof Llama && !world.isClientSide()) {//羊驼
@@ -50,4 +51,6 @@ public class UseEntityHandler  {
             }
         }
     }
+
+    */
 }

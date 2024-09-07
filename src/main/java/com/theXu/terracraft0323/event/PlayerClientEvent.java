@@ -4,39 +4,35 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.ability.playerLevel.abilityRegister;
+import com.theXu.terracraft0323.block.entity.ModBlockEntities;
 import com.theXu.terracraft0323.effect.ModEffects;
 import com.theXu.terracraft0323.mixinhelper.BellBlockDelayMixinHelper;
 import com.theXu.terracraft0323.network.packet.menuhandler.serverMenuPacket;
 import com.theXu.terracraft0323.ui.gui.caveShowRender;
 import com.theXu.terracraft0323.ui.gui.itemInfoScreen;
-import net.minecraft.client.GuiMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
-import org.joml.Vector3i;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.stb.STBImage;
 
-import javax.imageio.ImageIO;
-import javax.sound.sampled.Line;
+
 import java.awt.*;
-import java.awt.geom.Line2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @EventBusSubscriber(modid = NeoMod.MODID,value = Dist.CLIENT)
 public class PlayerClientEvent {

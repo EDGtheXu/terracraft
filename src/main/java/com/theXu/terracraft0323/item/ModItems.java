@@ -1,6 +1,11 @@
 package com.theXu.terracraft0323.item;
 
 import com.theXu.terracraft0323.NeoMod;
+import com.theXu.terracraft0323.block.ModBlock;
+import com.theXu.terracraft0323.entity.ModEntities;
+import com.theXu.terracraft0323.geo.item.GeckoArmorItem;
+import com.theXu.terracraft0323.geo.item.WolfArmorItem;
+import com.theXu.terracraft0323.geo.item.shenShengArmorItem;
 import com.theXu.terracraft0323.item.custom.*;
 import com.theXu.terracraft0323.item.menuItem.menuItem;
 import com.theXu.terracraft0323.item.terraBow.shenShengLianNu.shen_sheng_lian_nu;
@@ -10,15 +15,20 @@ import com.theXu.terracraft0323.item.terraJewelry.fly.flyBase;
 import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang;
 import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
-import com.theXu.terracraft0323.item.terraSword.yongYeSword.yong_ye_ren;
 import com.theXu.terracraft0323.item.terraSword.xingNu.xing_nu;
+import com.theXu.terracraft0323.item.terraSword.yongYeSword.yong_ye_ren;
+import com.theXu.terracraft0323.magicStoreCraft.geo.item.magicStorageItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -26,6 +36,7 @@ import java.util.function.Supplier;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(NeoMod.MODID);
+
 
     public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish",()->
             new Item(new Item.Properties().stacksTo(1).fireResistant().food(ModFoods.Mafish)));
@@ -53,9 +64,11 @@ public class ModItems {
             ()-> new ColliableItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> MATH_SWORD = registerItem("math_sword",
             ()-> new MathSwordItem(Tiers.NETHERITE, new Item.Properties()));
-    public static final DeferredItem<Item> VILLAGER_ITEM = registerItem("villager_item",() -> new VillagerItem(new Item.Properties().food(ModFoods.VILLAGER_ITEM).stacksTo(1)));
-    public static final DeferredItem<Item> LLAMA_ITEM = registerItem("llama_item", ()-> new LlamaItem(new Item.Properties()));
-    public static final DeferredItem<Item> IRON_GOLEM_ITEM = registerItem("iron_golem_item",()-> new Item(new Item.Properties().food(ModFoods.IRON_GOLEM_ITEM).stacksTo(1)));
+
+    //public static final DeferredItem<Item> VILLAGER_ITEM = registerItem("villager_item",() -> new VillagerItem(new Item.Properties().food(ModFoods.VILLAGER_ITEM).stacksTo(1)));
+    //public static final DeferredItem<Item> LLAMA_ITEM = registerItem("llama_item", ()-> new LlamaItem(new Item.Properties()));
+    //public static final DeferredItem<Item> IRON_GOLEM_ITEM = registerItem("iron_golem_item",()-> new Item(new Item.Properties().food(ModFoods.IRON_GOLEM_ITEM).stacksTo(1)));
+
     public static final DeferredItem<Item> RUBY_STAFF=registerItem("ruby_staff",
             ()-> new RubyStuffItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> SWITCH = registerItem("switch",() -> new SwitchItem(new Item.Properties().food(ModFoods.SWITCH)));
@@ -71,10 +84,28 @@ public class ModItems {
 
 
 //terraCraft
+
+
+    //blockitem
+    public static final DeferredItem<Item> MAGIC_BLOCK_ITEM = registerItem("magic_storage_block",
+        ()->new magicStorageItem(ModBlock.MAGIC_STORE.get()));
+
+    //geo entity
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> BIKE_SPAWN_EGG = ITEMS.register("bike_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.BIKE, 0xD3E3E6, 0xE9F1F5, new Item.Properties()));
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> RACE_CAR_SPAWN_EGG = ITEMS.register("race_car_spawn_egg",() ->  new DeferredSpawnEggItem(ModEntities.RACE_CAR, 0x9E1616, 0x595959, new Item.Properties()));
+    //public static final DeferredHolder<Item, DeferredSpawnEggItem> PARASITE_SPAWN_EGG = ITEMS.register("parasite_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.PARASITE, 0x302219, 0xACACAC, new Item.Properties()));
+    //public static final DeferredHolder<Item, DeferredSpawnEggItem> MUTANT_ZOMBIE_SPAWN_EGG = ITEMS.register("mutant_zombie_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.MUTANT_ZOMBIE, 0x3C6236, 0x579989, new Item.Properties()));
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> FAKE_GLASS_SPAWN_EGG = ITEMS.register("fake_glass_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.FAKE_GLASS, 0xDD0000, 0xD8FFF7, new Item.Properties()));
+    public static final DeferredHolder<Item, DeferredSpawnEggItem> COOL_KID_SPAWN_EGG = ITEMS.register("cool_kid_spawn_egg", () -> new DeferredSpawnEggItem(ModEntities.COOL_KID, 0x5F2A31, 0x6F363E, new Item.Properties()));
+
+
+
     //菜单
 
     public static final DeferredItem<Item> MAIN_MENU = registerItem("main_menu",
         ()->new menuItem(new Item.Properties().stacksTo(1)));
+
+
 
 //武器
 
@@ -98,9 +129,28 @@ public class ModItems {
             ke_yan_fa_zhang::new);
 
 
+//盔甲
+    public static final DeferredHolder<Item, WolfArmorItem> WOLF_ARMOR_HELMET = ITEMS.register("wolf_armor_helmet", () -> new WolfArmorItem(ModTiers.WOLF_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredHolder<Item, WolfArmorItem> WOLF_ARMOR_CHESTPLATE = ITEMS.register("wolf_armor_chestplate", () -> new WolfArmorItem(ModTiers.WOLF_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredHolder<Item, WolfArmorItem> WOLF_ARMOR_LEGGINGS = ITEMS.register("wolf_armor_leggings", () -> new WolfArmorItem(ModTiers.WOLF_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredHolder<Item, WolfArmorItem> WOLF_ARMOR_BOOTS = ITEMS.register("wolf_armor_boots", () -> new WolfArmorItem(ModTiers.WOLF_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_HELMET = ITEMS.register("gecko_armor_helmet", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_CHESTPLATE = ITEMS.register("gecko_armor_chestplate", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_LEGGINGS = ITEMS.register("gecko_armor_leggings", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_BOOTS = ITEMS.register("gecko_armor_boots", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_HELMET = ITEMS.register("armor/shen_sheng_armor_helmet", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_CHESTPLATE = ITEMS.register("armor/shen_sheng_armor_chestplate", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_LEGGINGS = ITEMS.register("armor/shen_sheng_armor_leggings", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_BOOTS = ITEMS.register("armor/shen_sheng_armor_boots", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
-    //饰品
+//材料
+    public static final DeferredItem<Item> SHEN_SHENG_DING = ITEMS.register("material/shen_sheng_ding",()->
+            new Item(new Item.Properties()));
+
+//饰品
     public static final DeferredItem<Item>  TAI_LA_XUE = registerItem("jewelry/tai_la_xue",
             ()->new bootBase(new Item.Properties().rarity(Rarity.RARE)
                     .attributes(ItemAttributeModifiers.builder()
@@ -147,6 +197,16 @@ public class ModItems {
                                     EquipmentSlotGroup.ARMOR).build()
 
                     )
+                    .attributes(ItemAttributeModifiers.builder()
+                            .add(
+                                    Attributes.SAFE_FALL_DISTANCE,
+                                    new AttributeModifier(
+                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_jinmazhang"),
+                                            500,
+                                            AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.ARMOR).build()
+
+                    )
                     .rarity(Rarity.EPIC),4.5f,2f,3f));
 
 
@@ -165,5 +225,7 @@ public class ModItems {
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
         return ITEMS.register(name,itemSupplier);
     }
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.theXu.terracraft0323.item;
 
 import com.theXu.terracraft0323.block.ModBlock;
+import com.theXu.terracraft0323.event.registerRenderEvent;
 import com.theXu.terracraft0323.item.terraBow.shenShengLianNu.shen_sheng_lian_nu;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
 import net.minecraft.core.registries.Registries;
@@ -82,8 +83,8 @@ public class ModTabs {
                         output.accept(((shen_sheng_lian_nu)ModItems.SHEN_SHENG_LIAN_NU.get()).createStack());
 
                         //magic store craft
-                        output.accept(ModBlock.MAGIC_STORE.get());
-
+                        output.accept(ModItems.MAGIC_BLOCK_ITEM.get());
+                        //output.accept(ModBlock.MAGIC_STORE_BLOCK.get());
 
 
                         //jewelry
@@ -91,6 +92,35 @@ public class ModTabs {
                         output.accept(ModItems.TAI_LA_XUE.get());
                         output.accept(ModItems.JIN_MA_ZHANG.get());
 
+
+
+                        //egg
+
+                        output.accept(ModItems.BIKE_SPAWN_EGG.get());
+                        output.accept(ModItems.RACE_CAR_SPAWN_EGG.get());
+                        //output.accept(ModItems.PARASITE_SPAWN_EGG.get());
+                        //output.accept(ModItems.MUTANT_ZOMBIE_SPAWN_EGG.get());
+                        output.accept(ModItems.FAKE_GLASS_SPAWN_EGG.get());
+                        output.accept(ModItems.COOL_KID_SPAWN_EGG.get());
+
+                        //armor
+                        output.accept(ModItems.GECKO_ARMOR_HELMET.get());
+                        output.accept(ModItems.GECKO_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.GECKO_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.GECKO_ARMOR_BOOTS.get());
+
+                        output.accept(ModItems.WOLF_ARMOR_HELMET.get());
+                        output.accept(ModItems.WOLF_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.WOLF_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.WOLF_ARMOR_BOOTS.get());
+
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_HELMET.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_BOOTS.get());
+
+                        //材料
+                        output.accept(ModItems.SHEN_SHENG_DING.get());
 
                     }).build());
 }

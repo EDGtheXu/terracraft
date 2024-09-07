@@ -2,7 +2,7 @@ package com.theXu.terracraft0323.ui;
 
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.block.ModBlock;
-import com.theXu.terracraft0323.magicStoreCraft.magicStoreBlockEntity;
+import com.theXu.terracraft0323.magicStoreCraft.geo.block.magicStoreBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
