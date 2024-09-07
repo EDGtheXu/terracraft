@@ -4,10 +4,14 @@ import com.mojang.datafixers.util.Pair;
 import com.theXu.terracraft0323.tag.ModTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class jewelrySlot extends Slot {
     public Player owner;
@@ -26,14 +30,28 @@ public class jewelrySlot extends Slot {
 
     @Override
     public void set(ItemStack stack) {
+        for(var itemattr : stack.getAttributeModifiers().modifiers()){
+            var instance = owner.getAttributes().getInstance(itemattr.attribute());
+            if(instance!=null){
+                System.out.println(instance.getAttribute().getRegisteredName());
+                instance.addOrUpdateTransientModifier(itemattr.modifier());
+            }
+        }
+
+
+
+
+/*
         owner.getAttributes().getSyncableAttributes().forEach(
                 a->{
+                    boolean exist = false;
                     stack.getAttributeModifiers().modifiers().forEach((k)->{
                         if(k.attribute() == a.getAttribute())
                             a.addOrUpdateTransientModifier(k.modifier());
                     });
                 }
         );
+        */
         super.set(stack);
     }
     @Override

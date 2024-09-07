@@ -93,5 +93,34 @@ public class ModTabs {
                         output.accept(ModItems.JIN_MA_ZHANG.get());
 
 
+
+                        //egg
+
+                        output.accept(ModItems.BIKE_SPAWN_EGG.get());
+                        output.accept(ModItems.RACE_CAR_SPAWN_EGG.get());
+                        //output.accept(ModItems.PARASITE_SPAWN_EGG.get());
+                        //output.accept(ModItems.MUTANT_ZOMBIE_SPAWN_EGG.get());
+                        output.accept(ModItems.FAKE_GLASS_SPAWN_EGG.get());
+                        output.accept(ModItems.COOL_KID_SPAWN_EGG.get());
+
+                        //armor
+                        output.accept(ModItems.GECKO_ARMOR_HELMET.get());
+                        output.accept(ModItems.GECKO_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.GECKO_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.GECKO_ARMOR_BOOTS.get());
+
+                        output.accept(ModItems.WOLF_ARMOR_HELMET.get());
+                        output.accept(ModItems.WOLF_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.WOLF_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.WOLF_ARMOR_BOOTS.get());
+
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_HELMET.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_CHESTPLATE.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_LEGGINGS.get());
+                        output.accept(ModItems.SHEN_SHENG_ARMOR_BOOTS.get());
+
+                        //材料
+                        output.accept(ModItems.SHEN_SHENG_DING.get());
+
                     }).build());
 }

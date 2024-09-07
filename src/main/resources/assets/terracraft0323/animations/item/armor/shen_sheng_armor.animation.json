@@ -1,0 +1,49 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.move": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"bone40": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [35.6484, -10.21235, -7.24677]
+						}
+					}
+				}
+			}
+		},
+		"animation.model.stop": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.0417,
+			"bones": {
+				"bone40": {
+					"rotation": {
+						"0.0": {
+							"vector": [35.6484, -10.21235, -7.24677]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.model.moving": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"bone40": {
+					"rotation": {
+						"vector": [35.6484, -10.21235, -7.24677]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

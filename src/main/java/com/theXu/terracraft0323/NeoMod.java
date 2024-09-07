@@ -6,6 +6,7 @@ import com.theXu.terracraft0323.block.entity.ModBlockEntities;
 import com.theXu.terracraft0323.effect.ModEffects;
 import com.theXu.terracraft0323.entity.ModEntities;
 import com.theXu.terracraft0323.item.ModItems;
+import com.theXu.terracraft0323.item.ModTiers;
 import com.theXu.terracraft0323.item.component.ModDataComponents;
 import com.theXu.terracraft0323.potion.ModPotions;
 import com.theXu.terracraft0323.sound.ModSounds;
@@ -34,6 +35,7 @@ public class NeoMod
         ModDataComponents.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModTabs.CREATIVE_TABS.register(modEventBus);
+        ModTiers.ARMOR_MATERIALS.register(modEventBus);
         ModBlock.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModEntities.register(modEventBus);

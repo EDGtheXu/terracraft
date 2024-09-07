@@ -1,15 +1,13 @@
 package com.theXu.terracraft0323.item.terraSword;
 
 
-import com.theXu.terracraft0323.item.tiers.modTiers;
+import com.theXu.terracraft0323.item.tiers.modTier;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -27,11 +25,11 @@ public abstract class terraria_sword_base extends SwordItem {
     public int damage;
 
     public terraria_sword_base(int damage) {
-        super(new modTiers(),  new Item.Properties()
+        super(modTier.SHEN_SHENG_DING,  new Item.Properties()
                 //.rarity(Rarity.RARE)
                 .fireResistant()
                 .component(DataComponents.UNBREAKABLE,new Unbreakable(true))
-                .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(new modTiers(),damage,10))
+                .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(modTier.SHEN_SHENG_DING,damage,10))
 
         );
         this.damage = damage;

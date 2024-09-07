@@ -20,12 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
-
+/*
     @Unique
     private final Minecraft mc = Minecraft.getInstance();
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     public void renderItem(ItemStack itemStack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, BakedModel p_model, CallbackInfo ci) {
+
         // 检查是否是特定物品
         if (BuiltInRegistries.ITEM.getKey(itemStack.getItem()).equals(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "villager_item"))) {
             // 取消默认渲染
@@ -42,5 +43,8 @@ public class ItemRendererMixin {
             mc.getEntityRenderDispatcher().render(villager, 0, 0, 0, 0.0F, 1.0F, poseStack, bufferSource, combinedLight);
             poseStack.popPose();
         }
+
+
     }
+    */
 }
