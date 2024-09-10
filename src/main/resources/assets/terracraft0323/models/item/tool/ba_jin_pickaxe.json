@@ -1,0 +1,6 @@
+{
+  "parent": "terracraft0323:item/base_handed",
+  "textures": {
+    "layer0": "terracraft0323:item/tool/ba_jin_pickaxe"
+  }
+}

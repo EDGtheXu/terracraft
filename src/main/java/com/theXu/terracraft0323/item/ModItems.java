@@ -17,15 +17,13 @@ import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword;
 import com.theXu.terracraft0323.item.terraSword.tailaren.tai_la_ren;
 import com.theXu.terracraft0323.item.terraSword.xingNu.xing_nu;
 import com.theXu.terracraft0323.item.terraSword.yongYeSword.yong_ye_ren;
+import com.theXu.terracraft0323.item.tiers.modTier;
 import com.theXu.terracraft0323.magicStoreCraft.geo.item.magicStorageItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -140,15 +138,44 @@ public class ModItems {
     public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_LEGGINGS = ITEMS.register("gecko_armor_leggings", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredHolder<Item, GeckoArmorItem> GECKO_ARMOR_BOOTS = ITEMS.register("gecko_armor_boots", () -> new GeckoArmorItem(ModTiers.GECKO_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_HELMET = ITEMS.register("armor/shen_sheng_armor_helmet", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_CHESTPLATE = ITEMS.register("armor/shen_sheng_armor_chestplate", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_LEGGINGS = ITEMS.register("armor/shen_sheng_armor_leggings", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_BOOTS = ITEMS.register("armor/shen_sheng_armor_boots", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_HELMET = ITEMS.register("armor/shen_sheng_armor_helmet", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties().durability(2000)));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_CHESTPLATE = ITEMS.register("armor/shen_sheng_armor_chestplate", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(2000)));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_LEGGINGS = ITEMS.register("armor/shen_sheng_armor_leggings", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(2000)));
+    public static final DeferredHolder<Item, shenShengArmorItem> SHEN_SHENG_ARMOR_BOOTS = ITEMS.register("armor/shen_sheng_armor_boots", () -> new shenShengArmorItem(ModTiers.SHEN_SHENG_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(2000)));
 
 
 //材料
+    public static final DeferredItem<Item> YIN_DING = ITEMS.register("material/yin_ding_ding",()->
+        new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GANG_DING = ITEMS.register("material/gang_ding",()->
+            new Item(new Item.Properties()));
+    public static final DeferredItem<Item> MO_KUANG_DING = ITEMS.register("material/mo_kuang_ding",()->
+            new Item(new Item.Properties()));
+    public static final DeferredItem<Item> XING_HONG_DING = ITEMS.register("material/xing_hong_ding",()->
+            new Item(new Item.Properties()));
+    public static final DeferredItem<Item> YU_YAN_DING = ITEMS.register("material/yu_yan_ding",()->
+            new Item(new Item.Properties()));
+    public static final DeferredItem<Item> BA_JIN_DING = ITEMS.register("material/ba_jin_ding",()->
+            new Item(new Item.Properties()));
     public static final DeferredItem<Item> SHEN_SHENG_DING = ITEMS.register("material/shen_sheng_ding",()->
             new Item(new Item.Properties()));
+    public static final DeferredItem<Item> YE_LV_DING = ITEMS.register("material/ye_lv_ding",()->
+            new Item(new Item.Properties()));
+    public static final DeferredItem<Item> YE_MING_DING = ITEMS.register("material/ye_ming_ding",()->
+            new Item(new Item.Properties()));
+
+
+//镐子
+public static final DeferredItem<Item> YU_YAN_PICKAXE = registerItem(
+        "tool/yu_yan_pickaxe", ()->new PickaxeItem(modTier.YU_YAN,
+                new Item.Properties().attributes(PickaxeItem.createAttributes(modTier.YU_YAN, 1.0F, -2.8F)))
+);
+    public static final DeferredItem<Item> BA_JIN_PICKAXE = registerItem(
+        "tool/ba_jin_pickaxe", ()->new PickaxeItem(modTier.BA_JIN,
+                new Item.Properties().attributes(PickaxeItem.createAttributes(modTier.BA_JIN, 1.0F, -2.8F)))
+);
+
+
 
 //饰品
     public static final DeferredItem<Item>  TAI_LA_XUE = registerItem("jewelry/tai_la_xue",
@@ -187,6 +214,7 @@ public class ModItems {
   //翅膀
     public static final DeferredItem<Item>  TIAN_JIE_XING_PAN = registerItem("jewelry/tian_jie_xing_pan",
             ()-> new flyBase(new Item.Properties()
+                    /*
                     .attributes(ItemAttributeModifiers.builder()
                             .add(
                                     Attributes.ARMOR,
@@ -197,11 +225,12 @@ public class ModItems {
                                     EquipmentSlotGroup.ARMOR).build()
 
                     )
+                    */
                     .attributes(ItemAttributeModifiers.builder()
                             .add(
                                     Attributes.SAFE_FALL_DISTANCE,
                                     new AttributeModifier(
-                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_jinmazhang"),
+                                            ResourceLocation.fromNamespaceAndPath(NeoMod.MODID, "jew_flyer"),
                                             500,
                                             AttributeModifier.Operation.ADD_VALUE),
                                     EquipmentSlotGroup.ARMOR).build()

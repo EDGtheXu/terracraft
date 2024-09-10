@@ -3,6 +3,7 @@ package com.theXu.terracraft0323.event;
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.block.entity.ModBlockEntities;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyanRender;
+import com.theXu.terracraft0323.creature.monster.boss.kulouwang.*;
 import com.theXu.terracraft0323.entity.ModEntities;
 import com.theXu.terracraft0323.geo.renderer.*;
 import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon_render;
@@ -19,6 +20,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import com.theXu.terracraft0323.entity.waveRenderer.*;
 
 @EventBusSubscriber(modid = NeoMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class registerRenderEvent {
@@ -49,6 +51,7 @@ public class registerRenderEvent {
         event.registerEntityRenderer(ModEntities.YONG_YE_REN_WAVE.get(), yong_ye_ren_waveRender::new);
         event.registerEntityRenderer(ModEntities.ICE_SWORD_WAVE.get(), ice_sword_waveRender::new);
         event.registerEntityRenderer(ModEntities.XING_NU_WAVE.get(), xing_nu_waveRender::new);
+        event.registerEntityRenderer(ModEntities.KU_LOU_WANG_WAVE.get(), kulouwang_waveRenderer::new);
 
         //boss
         event.registerEntityRenderer(ModEntities.KE_YAN.get(),kesuluzhiyanRender::new);
@@ -66,6 +69,8 @@ public class registerRenderEvent {
         //geo
         //event.registerBlockEntityRenderer();
         event.registerEntityRenderer(ModEntities.TEST_MONSTER.get(), monsterRenderer::new);
+        event.registerEntityRenderer(ModEntities.KU_LOU_WANG.get(), kulouwangRenderer::new);
+        event.registerEntityRenderer(ModEntities.KU_LOU_WANG_HAND.get(), kulouwangHandRenderer::new);
     }
 
 

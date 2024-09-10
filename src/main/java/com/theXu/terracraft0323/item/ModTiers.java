@@ -15,6 +15,9 @@ public class ModTiers {
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> WOLF_ARMOR_MATERIAL = ARMOR_MATERIALS.register("wolf", ModTiers::dummyArmorMaterial);
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GECKO_ARMOR_MATERIAL = ARMOR_MATERIALS.register("gecko", ModTiers::dummyArmorMaterial);
+
+
+
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> SHEN_SHENG_MATERIAL = ARMOR_MATERIALS.register("shen_sheng",  ModTiers::shenShengArmorMaterial );
 
 
