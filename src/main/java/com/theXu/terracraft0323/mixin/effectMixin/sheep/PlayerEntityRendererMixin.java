@@ -1,7 +1,9 @@
 package com.theXu.terracraft0323.mixin.effectMixin.sheep;
 
+import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyan;
 import com.theXu.terracraft0323.effect.ModEffects;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.theXu.terracraft0323.entity.ModEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -13,6 +15,7 @@ import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.monster.Zombie;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -34,7 +37,11 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/player/PlayerRenderer;render(Lnet/minecraft/client/player/AbstractClientPlayer;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V"))
     private void redirectRender(PlayerRenderer renderer,AbstractClientPlayer entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
 
-        LivingEntity sheep = new Sheep(EntityType.SHEEP, Minecraft.getInstance().level);
+        //LivingEntity sheep = new Sheep(EntityType.SHEEP, Minecraft.getInstance().level);
+
+        LivingEntity sheep = new Zombie(EntityType.ZOMBIE,Minecraft.getInstance().level);
+        //LivingEntity sheep = new kesuluzhiyan(ModEntities.KE_YAN.get(),Minecraft.getInstance().level);
+
 
         if(entity.hasEffect(ModEffects.SHEEP_EFFECT)) {
             EntityRenderer sheepRenderer = Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(sheep);

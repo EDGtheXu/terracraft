@@ -1,13 +1,14 @@
 package com.theXu.terracraft0323.item.terraSword.iceSword;
 
+import com.theXu.terracraft0323.effect.ModEffects;
 import com.theXu.terracraft0323.entity.ModEntities;
 import com.theXu.terracraft0323.item.terraSword.waveHandler.wave_base;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -29,7 +30,7 @@ public class ice_sword_wave extends wave_base {
         super(pEntityType, pLevel);
     }
 
-    public ice_sword_wave(Player pOwner, Level pLevel) {
+    public ice_sword_wave(Entity pOwner, Level pLevel) {
         super(ModEntities.ICE_SWORD_WAVE.get(),pLevel);
         this.setOwner(pOwner);
     }
@@ -43,9 +44,10 @@ public class ice_sword_wave extends wave_base {
             Entity entity1 = pResult.getEntity();
             Entity entity = this.getOwner();
             entity1.hurt(this.damageSources().mobProjectile(this, entity instanceof LivingEntity livingentity ? livingentity : null), damage());
-            if(entity1 instanceof LivingEntity){
-                /*
-                ((LivingEntity)entity1).addEffect(new MobEffectInstance(modEffects.FROZEN,500));
+            if(entity1 instanceof LivingEntity && entity != getOwner()){
+
+                ((LivingEntity)entity1).addEffect(new MobEffectInstance(ModEffects.ICE_FROZEN,500));
+                                /*
                 ((LivingEntity)entity1).addEffect(new MobEffectInstance(modEffects.PO_XIAO_1,500));
             */
             }

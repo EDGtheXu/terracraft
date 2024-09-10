@@ -1,5 +1,6 @@
 package com.theXu.terracraft0323.block;
 
+import com.mojang.datafixers.types.templates.Tag;
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.block.custome.PotatoTNTBlock;
 import com.theXu.terracraft0323.block.custome.PotatoTNTPrepareBlock;
@@ -7,11 +8,15 @@ import com.theXu.terracraft0323.block.custome.SoundBlock;
 import com.theXu.terracraft0323.item.ModItems;
 import com.theXu.terracraft0323.magicStoreCraft.geo.block.magicBlock;
 import com.theXu.terracraft0323.sound.ModSounds;
+import com.theXu.terracraft0323.tag.ModTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -45,15 +50,32 @@ public class ModBlock {
 
 
 
-    //TerraCraft
+    //TerraCraft+
+    public static final DeferredBlock<Block> GANG_ORE = registerBlock("gang_ore",
+            ()-> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final DeferredBlock<Block> YIN_ORE = registerBlock("yin_ore",
+            ()-> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final DeferredBlock<Block> YU_YAN_ORE = registerBlock("yu_yan_ore",
+            ()-> new DropExperienceBlock(UniformInt.of(5, 6), BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 999.0F)));
+
+    public static final DeferredBlock<Block> BA_JIN_ORE = registerBlock("ba_jin_ore",
+            ()-> new DropExperienceBlock(UniformInt.of(6, 8), BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 999.0F)));
+
+
+
+
+
+
 
     public static final DeferredBlock<Block> MAGIC_STORE = registerSingleBlock("magic_storage_block",
-            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().sound(ModSounds.SOUND_BLOCK_SOUNDS)));
+            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().sound(ModSounds.SOUND_BLOCK_SOUNDS).requiresCorrectToolForDrops()));
 
-/*
-    public static final DeferredBlock<Block> MAGIC_STORE = registerSingleBlock("magic_storage_block",
-            ()->new magicBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().sound(ModSounds.SOUND_BLOCK_SOUNDS)));
-*/
+
+
+
+
+
+
 
 
 

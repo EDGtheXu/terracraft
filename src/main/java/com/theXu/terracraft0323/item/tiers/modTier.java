@@ -2,6 +2,7 @@ package com.theXu.terracraft0323.item.tiers;
 
 import com.google.common.base.Suppliers;
 import com.theXu.terracraft0323.item.ModItems;
+import com.theXu.terracraft0323.tag.ModTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
@@ -14,8 +15,10 @@ import java.util.function.Supplier;
 
 public enum modTier implements Tier {
 
-
-    SHEN_SHENG_DING(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 10.0F, 8.0F, 20, () -> Ingredient.of(ModItems.SHEN_SHENG_DING));
+    YU_YAN(ModTags.Blocks.INCORRECT_FOR_YU_YAN_TOOL, 2000, 10.0F, 8.0F, 20, () -> Ingredient.of(ModItems.YU_YAN_DING)),
+    BA_JIN(ModTags.Blocks.INCORRECT_FOR_BA_JIN_TOOL, 2000, 10.0F, 8.0F, 20, () -> Ingredient.of(ModItems.BA_JIN_DING)),
+    SHEN_SHENG_DING(ModTags.Blocks.INCORRECT_FOR_SHEN_SHENG_TOOL, 2000, 10.0F, 8.0F, 20, () -> Ingredient.of(ModItems.SHEN_SHENG_DING)),
+    YE_LV(ModTags.Blocks.INCORRECT_FOR_YE_LV_TOOL, 2000, 10.0F, 8.0F, 20, () -> Ingredient.of(ModItems.YE_LV_DING));
 
 
 
@@ -39,33 +42,33 @@ public enum modTier implements Tier {
 
     @Override
     public int getUses() {
-        return 0;
+        return this.uses;
     }
 
     @Override
     public float getSpeed() {
-        return 10;
+        return this.speed;
     }
 
     @Override
     public float getAttackDamageBonus() {
-
-        return 50;
+        return this.damage;
     }
 
     @Override
-    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
-        return getIncorrectBlocksForDrops();
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return this.incorrectBlocksForDrops;
     }
-
 
     @Override
     public int getEnchantmentValue() {
-        return 0;
+        return this.enchantmentValue;
     }
 
     @Override
-    public @NotNull Ingredient getRepairIngredient() {
-        return null;
+    public Ingredient getRepairIngredient() {
+        return this.repairIngredient.get();
     }
+
+
 }

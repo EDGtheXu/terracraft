@@ -19,6 +19,7 @@ public class modTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        /*
         tag(ModTags.Items.JEWELRY)
                 .add(ModItems.TIAN_JIE_XING_PAN.get())
         ;
@@ -26,6 +27,6 @@ public class modTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.JEWELRY_FLY)
                 .add(ModItems.TIAN_JIE_XING_PAN.get())
                 ;
-
+*/
     }
 }

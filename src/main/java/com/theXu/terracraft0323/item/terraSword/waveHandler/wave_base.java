@@ -68,7 +68,7 @@ public abstract class wave_base extends AbstractHurtingProjectile{
             if(!entities.isEmpty()){
 
                 for (var e:entities) {
-                    if(e!=getOwner())
+                    if(canHitEntity(e))
                         e.hurt(this.damageSources().mobProjectile(this, getOwner() instanceof LivingEntity livingentity ? livingentity : null), damage());
                 }
             }

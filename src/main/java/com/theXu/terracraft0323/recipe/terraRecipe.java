@@ -114,8 +114,11 @@ public class terraRecipe {
 
         });
     }
-
+    static boolean init = false;
     public static void initRecipe(){
+        if(init)return;
+        init = true;
+
         recipeMapAll.clear();
         RecipeManager rm = ServerManager.serverInstance.getRecipeManager();
         Level level = Minecraft.getInstance().level;

@@ -2,6 +2,9 @@ package com.theXu.terracraft0323.entity;
 
 import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyan;
+import com.theXu.terracraft0323.creature.monster.boss.kulouwang.kulouwang;
+import com.theXu.terracraft0323.creature.monster.boss.kulouwang.kulouwangHand;
+import com.theXu.terracraft0323.entity.wave.following_wave;
 import com.theXu.terracraft0323.geo.entity.*;
 import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon;
 import com.theXu.terracraft0323.item.terraSword.iceSword.ice_sword_wave;
@@ -67,6 +70,9 @@ public class ModEntities {
     //public static final DeferredHolder<EntityType<?>, EntityType<DynamicExampleEntity>> MUTANT_ZOMBIE = register("mutant_zombie", DynamicExampleEntity::new, 0.5f, 1.9f, 0x3C6236, 0x579989);
     public static final DeferredHolder<EntityType<?>, EntityType<FakeGlassEntity>> FAKE_GLASS = register("fake_glass", FakeGlassEntity::new, 1, 1, 0xDD0000, 0xD8FFF7);
     public static final DeferredHolder<EntityType<?>, EntityType<CoolKidEntity>> COOL_KID = register("cool_kid", CoolKidEntity::new, 0.45f, 1f, 0x5F2A31, 0x6F363E);
+    public static final DeferredHolder<EntityType<?>, EntityType<kulouwang>> KU_LOU_WANG = register("ku_lou_wang", kulouwang::new, 3f, 3f, 0x5F3A5B, 0x6F9A6B);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<kulouwangHand>> KU_LOU_WANG_HAND = register("ku_lou_wang_hand", kulouwangHand::new, 1f, 1f, 0x5F3A5B, 0x6F9A6B);
 
 
 
@@ -109,7 +115,7 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ice_sword").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ice_sword_wave").toString())
             );
 
     public static final Supplier<EntityType<xing_nu_wave>> XING_NU_WAVE =
@@ -119,16 +125,24 @@ public class ModEntities {
                             .setTrackingRange(4)
                             .setUpdateInterval(10)
                             .setShouldReceiveVelocityUpdates(true)
-                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"xing_nu").toString())
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"xing_nu_wave").toString())
             );
 
-
+    public static final Supplier<EntityType<following_wave>> KU_LOU_WANG_WAVE =
+            ENTITY_TYPES.register("ku_lou_wang_wave",
+                    () ->EntityType.Builder.<following_wave>of(following_wave::new, MobCategory.MISC)
+                            .sized(1F, 1F)
+                            .setTrackingRange(4)
+                            .setUpdateInterval(1)
+                            .setShouldReceiveVelocityUpdates(true)
+                            .build(ResourceLocation.fromNamespaceAndPath(NeoMod.MODID,"ku_lou_wang_wave").toString())
+            );
 
 
 //creature
     public static final Supplier<EntityType<kesuluzhiyan>> KE_YAN =
             ENTITY_TYPES.register("ke_yan",
-                    () ->EntityType.Builder.<kesuluzhiyan>of(kesuluzhiyan::new, MobCategory.MISC)
+                    () ->EntityType.Builder.<kesuluzhiyan>of(kesuluzhiyan::new, MobCategory.MONSTER)
                             .sized(4F, 4F)
                             .setTrackingRange(200)
                             .setUpdateInterval(1)
@@ -167,10 +181,26 @@ public class ModEntities {
                 .add(Attributes.MOVEMENT_SPEED, 0.25f);
         AttributeSupplier.Builder genericMonsterAttribs = Monster.createMobAttributes()
                 .add(Attributes.FOLLOW_RANGE, 16)
-                .add(Attributes.MAX_HEALTH, 1)
+                .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0.25f)
                 .add(Attributes.ATTACK_DAMAGE, 5)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.1);
+        AttributeSupplier.Builder kulouwangAttribs = Monster.createMobAttributes()
+                .add(Attributes.FOLLOW_RANGE, 100)
+                .add(Attributes.MAX_HEALTH, 2000)
+                .add(Attributes.MOVEMENT_SPEED, 0.5f)
+                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.FLYING_SPEED, 0.5)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 10)
+                .add(Attributes.ATTACK_KNOCKBACK, 0.5);
+        AttributeSupplier.Builder kulouwangHandAttribs = Monster.createMobAttributes()
+                .add(Attributes.FOLLOW_RANGE, 100)
+                .add(Attributes.MAX_HEALTH, 200)
+                .add(Attributes.MOVEMENT_SPEED, 0.5f)
+                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.FLYING_SPEED, 0.5)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 10)
+                .add(Attributes.ATTACK_KNOCKBACK, 0.5);
 
         event.put(ModEntities.BIKE.get(), genericAttribs.build());
         event.put(ModEntities.RACE_CAR.get(), genericAttribs.build());
@@ -178,6 +208,9 @@ public class ModEntities {
         event.put(ModEntities.COOL_KID.get(), genericMovingAttribs.build());
         event.put(ModEntities.FAKE_GLASS.get(), genericMovingAttribs.build());
         event.put(ModEntities.TEST_MONSTER.get(), genericMonsterAttribs.build());
+        event.put(ModEntities.KU_LOU_WANG.get(), kulouwangAttribs.build());
+        event.put(ModEntities.KU_LOU_WANG_HAND.get(), kulouwangHandAttribs.build());
+
     }
 
 

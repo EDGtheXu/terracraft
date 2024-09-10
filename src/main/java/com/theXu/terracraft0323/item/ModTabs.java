@@ -120,7 +120,25 @@ public class ModTabs {
                         output.accept(ModItems.SHEN_SHENG_ARMOR_BOOTS.get());
 
                         //材料
+                        output.accept(ModItems.YIN_DING.get());
+                        output.accept(ModItems.GANG_DING.get());
+                        output.accept(ModItems.MO_KUANG_DING.get());
+                        output.accept(ModItems.YU_YAN_DING.get());
+                        output.accept(ModItems.XING_HONG_DING.get());
+                        output.accept(ModItems.BA_JIN_DING.get());
                         output.accept(ModItems.SHEN_SHENG_DING.get());
+                        output.accept(ModItems.YE_LV_DING.get());
+                        output.accept(ModItems.YE_MING_DING.get());
+
+                        //工具
+                        output.accept(ModItems.YU_YAN_PICKAXE.get());
+                        output.accept(ModItems.BA_JIN_PICKAXE.get());
+
+
+                        //普通方块
+                        output.accept(ModBlock.YU_YAN_ORE.get());
+                        output.accept(ModBlock.BA_JIN_ORE.get());
+
 
                     }).build());
 }
