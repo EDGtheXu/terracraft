@@ -16,9 +16,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class xing_nu_wave extends wave_base {
+    private float damage;
     @Override
     public float damage() {
-        return 10;
+        return damage;
     }
     @Override
     public float waveDur() {
@@ -31,9 +32,10 @@ public class xing_nu_wave extends wave_base {
         super(pEntityType, pLevel);
     }
 
-    public xing_nu_wave(Player pOwner, Level pLevel, Vec3 target) {
+    public xing_nu_wave(Player pOwner, Level pLevel, int damage) {
         super(ModEntities.XING_NU_WAVE.get(),pLevel);
         this.setOwner(pOwner);
+        this.damage = damage;
     }
 
 

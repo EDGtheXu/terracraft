@@ -9,6 +9,7 @@ import com.theXu.terracraft0323.item.ModItems;
 import com.theXu.terracraft0323.item.ModTiers;
 import com.theXu.terracraft0323.item.component.ModDataComponents;
 import com.theXu.terracraft0323.potion.ModPotions;
+import com.theXu.terracraft0323.registry.ParticleRegistry;
 import com.theXu.terracraft0323.sound.ModSounds;
 import com.theXu.terracraft0323.item.ModTabs;
 import com.theXu.terracraft0323.ui.modMenuType;
@@ -45,7 +46,7 @@ public class NeoMod
         modMenuType.MENU_TYPES.register(modEventBus);
         blockMenuTypes.register(modEventBus);
         ModAttributes.AttributesTypes.register(modEventBus);
-
+        ParticleRegistry.register(modEventBus);
 
 
 

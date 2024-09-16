@@ -27,7 +27,7 @@ import java.util.Optional;
 
 
 public class tai_la_ren extends terraria_sword_base {
-    private static final int damage = 50;
+    private static final int damage = 30;
     private static final float speed = 50;
     private static final float forwardSpeed = 1;
     public tai_la_ren() {

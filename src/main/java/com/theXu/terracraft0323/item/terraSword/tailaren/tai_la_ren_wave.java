@@ -1,6 +1,7 @@
 package com.theXu.terracraft0323.item.terraSword.tailaren;
 
 import com.theXu.terracraft0323.entity.ModEntities;
+import com.theXu.terracraft0323.registry.ParticleRegistry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -18,16 +19,11 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
 public class tai_la_ren_wave extends AbstractHurtingProjectile {
-    /*
-    //LOGGER的Logger对象，用于记录日志信息。
-    private static final Logger LOGGER = LogUtils.getLogger();
-        */
-    //COUNTER的实体数据访问器，用于存储实体的计数器数据。
 
     //基础数据
     public Vector3f initForward = new Vector3f();
     public float damage(){
-        return 1;
+        return 30;
     }
     public float dur(){return 5000;};
 
@@ -51,25 +47,14 @@ public class tai_la_ren_wave extends AbstractHurtingProjectile {
 
     @Override
     public void tick() {
-        /*
-        //检查当前是否为客户端，如果是，则从实体数据中获取计数器数据并记录日志信息。如果不是客户端，则从实体数据中获取计数器数据，记录日志信息，并将计数器数据加1。最后，调用父类的tick()方法。
-        // 说的明白一些就是服务器将计数+1，然后进行数据的同步，在客户端打印出来。
-        if(this.level().isClientSide){
-            Integer i = this.entityData.get(COUNTER);
-            LOGGER.info(i.toString());
-        }
-        if(!this.level().isClientSide){
-            LOGGER.info(this.entityData.get(COUNTER).toString());
-            this.entityData.set(COUNTER,this.entityData.get(COUNTER)+1);
-        }
-        */
+
         if(System.currentTimeMillis()-starttime>dur()) discard();
         if(level().isClientSide){
             initForward = this.getEntityData().get(curRot);
         }else{
             //包围盒检测造成伤害
             var entities=level().getEntities(this,this.getBoundingBox());
-
+            level().addParticle(ParticleRegistry.DRAGON_FIRE_PARTICLE.get(), xOld,yOld,zOld,getDeltaMovement().x,getDeltaMovement().y,getDeltaMovement().z);
             if(!entities.isEmpty()){
 
                 for (var e:entities) {
@@ -110,7 +95,7 @@ public class tai_la_ren_wave extends AbstractHurtingProjectile {
     @Nullable
     @Override//设置粒子效果
     protected ParticleOptions getTrailParticle() {
-        return ParticleTypes.DOLPHIN;
+        return ParticleRegistry.DRAGON_FIRE_PARTICLE.get();
     }
 
     @Override
