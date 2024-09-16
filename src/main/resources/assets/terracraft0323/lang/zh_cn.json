@@ -167,6 +167,7 @@
 
   "item.terracraft0323.mod_menu": "菜单",
 
+
   "item.minecraft.potion.effect.cave_show_potion": "洞穴探险药水",
   "item.minecraft.potion.effect.iron_potion": "铁皮药水",
 
@@ -176,15 +177,26 @@
   "item.terracraft0323.sword.ice_sword": "冰雪刃",
   "item.terracraft0323.sword.xing_nu": "星怒",
 
+
   "item.terracraft0323.bow.shen_sheng_lian_nu":"神圣连弩",
+
+  "item.terracraft0323.armor.shen_sheng_armor_helmet": "神圣头盔",
+  "item.terracraft0323.armor.shen_sheng_armor_chestplate": "神圣胸甲",
+  "item.terracraft0323.armor.shen_sheng_armor_leggings": "神圣护胫",
+  "item.terracraft0323.armor.shen_sheng_armor_boots": "神圣战靴",
 
 
   "item.terracraft0323.jewelry.tian_jie_xing_pan": "天界星盘",
   "item.terracraft0323.jewelry.tai_la_xue": "泰拉靴",
   "item.terracraft0323.jewelry.jin_ma_zhang": "金马掌",
 
+
+
+
   "entity.terracraft0323.ke_yan":"克苏鲁之眼",
 
-  "effect.terracraft0323.cave_effect": "洞穴透视"
+  "effect.terracraft0323.cave_effect": "洞穴透视",
 
+
+  "block.terracraft0323.magic_storage_block": "魔法存储"
 }

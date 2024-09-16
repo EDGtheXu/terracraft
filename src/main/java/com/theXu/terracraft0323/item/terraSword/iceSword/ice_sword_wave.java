@@ -3,6 +3,7 @@ package com.theXu.terracraft0323.item.terraSword.iceSword;
 import com.theXu.terracraft0323.effect.ModEffects;
 import com.theXu.terracraft0323.entity.ModEntities;
 import com.theXu.terracraft0323.item.terraSword.waveHandler.wave_base;
+import com.theXu.terracraft0323.registry.ParticleRegistry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -59,6 +60,13 @@ public class ice_sword_wave extends wave_base {
     protected void onHitBlock(@NotNull BlockHitResult pResult) {
         super.onHitBlock(pResult);
         if(!this.level().isClientSide()) discard();
+    }
+
+    @Override
+    public void tick(){
+        super.tick();
+        level().addParticle(ParticleRegistry.DRAGON_FIRE_PARTICLE.get(), xOld,yOld,zOld,getDeltaMovement().x,getDeltaMovement().y,getDeltaMovement().z);
+
     }
 
 

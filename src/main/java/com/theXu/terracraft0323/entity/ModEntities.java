@@ -4,6 +4,8 @@ import com.theXu.terracraft0323.NeoMod;
 import com.theXu.terracraft0323.creature.monster.boss.kesuluzhiyan.kesuluzhiyan;
 import com.theXu.terracraft0323.creature.monster.boss.kulouwang.kulouwang;
 import com.theXu.terracraft0323.creature.monster.boss.kulouwang.kulouwangHand;
+import com.theXu.terracraft0323.creature.monster.boss.worm_eaterOfWorld.eaterOfWorld;
+import com.theXu.terracraft0323.creature.monster.boss.worm_eaterOfWorld.eaterOfWorld_segment;
 import com.theXu.terracraft0323.entity.wave.following_wave;
 import com.theXu.terracraft0323.geo.entity.*;
 import com.theXu.terracraft0323.item.terraSummon.ke_yan_fa_zhang.ke_yan_fa_zhang_summon;
@@ -71,9 +73,10 @@ public class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<FakeGlassEntity>> FAKE_GLASS = register("fake_glass", FakeGlassEntity::new, 1, 1, 0xDD0000, 0xD8FFF7);
     public static final DeferredHolder<EntityType<?>, EntityType<CoolKidEntity>> COOL_KID = register("cool_kid", CoolKidEntity::new, 0.45f, 1f, 0x5F2A31, 0x6F363E);
     public static final DeferredHolder<EntityType<?>, EntityType<kulouwang>> KU_LOU_WANG = register("ku_lou_wang", kulouwang::new, 3f, 3f, 0x5F3A5B, 0x6F9A6B);
-
     public static final DeferredHolder<EntityType<?>, EntityType<kulouwangHand>> KU_LOU_WANG_HAND = register("ku_lou_wang_hand", kulouwangHand::new, 1f, 1f, 0x5F3A5B, 0x6F9A6B);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<eaterOfWorld>> WORM_EATER_OF_EATER = register("worm_eater_of_world", eaterOfWorld::new, 2f, 1f, 0x5F3A5B, 0x6F9A6B);
+    public static final DeferredHolder<EntityType<?>, EntityType<eaterOfWorld_segment>> WORM_EATER_OF_EATER_SEGMENT = register("worm_eater_of_world_segment", eaterOfWorld_segment::new, 2f, 1f, 0x5F3A5B, 0x6F9A6B);
 
 
     //wave
@@ -185,11 +188,20 @@ public class ModEntities {
                 .add(Attributes.MOVEMENT_SPEED, 0.25f)
                 .add(Attributes.ATTACK_DAMAGE, 5)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.1);
+        AttributeSupplier.Builder genericBossAttribs = Monster.createMobAttributes()
+                .add(Attributes.FOLLOW_RANGE, 100)
+                .add(Attributes.MAX_HEALTH, 200)
+                .add(Attributes.MOVEMENT_SPEED, 0.15f)
+                .add(Attributes.ATTACK_DAMAGE, 5)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 10)
+                .add(Attributes.GRAVITY,0)
+
+                .add(Attributes.ATTACK_KNOCKBACK, 1);
         AttributeSupplier.Builder kulouwangAttribs = Monster.createMobAttributes()
                 .add(Attributes.FOLLOW_RANGE, 100)
-                .add(Attributes.MAX_HEALTH, 2000)
+                .add(Attributes.MAX_HEALTH, 1000)
                 .add(Attributes.MOVEMENT_SPEED, 0.5f)
-                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.ATTACK_DAMAGE, 8)
                 .add(Attributes.FLYING_SPEED, 0.5)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 10)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.5);
@@ -197,7 +209,7 @@ public class ModEntities {
                 .add(Attributes.FOLLOW_RANGE, 100)
                 .add(Attributes.MAX_HEALTH, 200)
                 .add(Attributes.MOVEMENT_SPEED, 0.5f)
-                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.ATTACK_DAMAGE, 5)
                 .add(Attributes.FLYING_SPEED, 0.5)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 10)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.5);
@@ -210,6 +222,10 @@ public class ModEntities {
         event.put(ModEntities.TEST_MONSTER.get(), genericMonsterAttribs.build());
         event.put(ModEntities.KU_LOU_WANG.get(), kulouwangAttribs.build());
         event.put(ModEntities.KU_LOU_WANG_HAND.get(), kulouwangHandAttribs.build());
+        event.put(ModEntities.WORM_EATER_OF_EATER.get(), genericBossAttribs.build());
+        event.put(ModEntities.WORM_EATER_OF_EATER_SEGMENT.get(), genericBossAttribs.build());
+
+
 
     }
 

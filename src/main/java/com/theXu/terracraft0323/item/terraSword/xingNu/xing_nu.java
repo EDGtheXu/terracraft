@@ -32,7 +32,6 @@ public class xing_nu extends terraria_sword_base {
 
     public xing_nu() {
         super(damage);
-
     }
 
     @Override
@@ -54,7 +53,7 @@ public class xing_nu extends terraria_sword_base {
             waveTarget = blockHitResult.getLocation();
 
         }
-        var wave = new xing_nu_wave(playerIn,level,waveTarget);
+        var wave = new xing_nu_wave(playerIn,level,damage);
         wave.setPos(waveTarget.add(Math.random() * 5 - 5,20,Math.random() * 5 - 5));
         wave.shoot(waveTarget.x - wave.getX(),waveTarget.y- wave.getY(),waveTarget.z - wave.getZ(),1,1);
 

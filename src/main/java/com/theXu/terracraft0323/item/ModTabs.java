@@ -16,7 +16,7 @@ import static com.theXu.terracraft0323.NeoMod.MODID;
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-
+/*
     public static final DeferredHolder<CreativeModeTab,CreativeModeTab> NEO_MAFISHMOD =
             CREATIVE_TABS.register("mafish", ()-> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.mafish"))
@@ -60,7 +60,7 @@ public class ModTabs {
 
                     }).build());
 
-
+*/
 
     public static final DeferredHolder<CreativeModeTab,CreativeModeTab> NEO_TERRA =
             CREATIVE_TABS.register("terracraft0323", ()-> CreativeModeTab.builder()

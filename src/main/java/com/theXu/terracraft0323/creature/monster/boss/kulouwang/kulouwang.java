@@ -37,19 +37,20 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.HashMap;
 import java.util.Map;
 
-public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
+public class kulouwang extends Monster implements GeoEntity {
 
-
-    private final bossSkills skills = new bossSkills();
     private final RawAnimation roll = RawAnimation.begin().thenPlay("animation.model.roll");
     private final RawAnimation fire = RawAnimation.begin().thenPlay("animation.model.fire");
-    private final Map<String,RawAnimation> skillMap = new HashMap<>();
+
     enum HandState{
         follow,attack
     }
     HandState handState = HandState.follow;
     kulouwangHand  handLeft;
     kulouwangHand  handRight;
+
+
+
     public kulouwang(EntityType<? extends Monster> type, Level level) {
         super(type, level);
         this.moveControl = new FlyingMoveControl(this, 10, false);
@@ -79,31 +80,17 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
 
     }
 
+    //攻击目标
     protected void registerGoals() {
-
-
-        //this.goalSelector.addGoal(1, new FloatGoal(this));
-        //this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0, 100, 20.0F));
-        //this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2, false));
-
-        //this.goalSelector.addGoal(4, new MoveTowardsTargetGoal(this, 2, 10));
-
-        //this.goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 1.0));
-
-        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 100F));
-
-
+        //this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 100F));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
-    // Add our animations
-
-
-
-
-    // Let's add our animation controller
-    int lastAnimIndex = -1;
+    //技能动画
+    private bossSkills skills = new bossSkills();
+    private Map<String,RawAnimation> skillMap = new HashMap<>();
+    private int lastAnimIndex = -1;
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         //controllers.add(DefaultAnimations.genericWalkIdleController(this));
@@ -123,6 +110,7 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
                     state.resetCurrentAnimation();
                     return PlayState.STOP;
                 }
+
                 state.setAnimation(skill);
                 return PlayState.CONTINUE;
             }
@@ -131,6 +119,7 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
 
     }
 
+    //技能逻辑
     private Vec3 normalDash;
     @Override
     public void tick(){
@@ -181,43 +170,21 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
 
         }
 
-
-        if(!level().isClientSide){
-            //包围盒检测造成伤害
-            var entities=level().getEntities(this,this.getBoundingBox());
-
-            if(!entities.isEmpty()){
-
-                for (var e:entities) {
-                    if(canAttack(e))
-                        e.hurt(this.damageSources().mobAttack(this), (float) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
-                }
-            }
-        }
-
+        collisionHurt();
 
         super.tick();
     }
 
-    public boolean canAttack(Entity entity){
-        if(entity instanceof Player
-                || getTarget()!=null&&getTarget().is(entity))
-        {
-            return true;
-        }
-        return false;
-    }
 
-
-    private void skillRoll(){
+    private void skillRoll(){//技能：滚动
         Entity target = getTarget();
         if(target==null) return;
         this.addDeltaMovement(target.position().subtract(position()).normalize().scale(0.15));
     }
-    private void skillFire(){
+    private void skillFire(){//远程攻击
         Entity target = getTarget();
 
-        following_wave wave = new following_wave(this,target,level(),0.5f,1){
+        following_wave wave = new following_wave(this,target,level(),0.5f,(float) (this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()*0.8)){
             public boolean canHitEntity(Entity entity){
                 if(entity.getType() == ModEntities.KU_LOU_WANG_HAND.get()){
                     return false;
@@ -231,66 +198,79 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
         level().addFreshEntity(wave);
     }
 
-    private void dash(Vec3 pos){
+    private void dash(Vec3 pos){//普通冲撞
         Entity target = getTarget();
         if(target==null)return;
         this.addDeltaMovement(pos.subtract(position()).normalize().scale( 0.3));
     }
 
 
-    @Override
-    public void aiStep() {
-        super.aiStep();
 
+
+
+//开启碰撞伤害
+    public boolean canCollisionHurt(){
+        return true;
     }
 
-
-    @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
-        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+    public void collisionHurt(){
+        if(canCollisionHurt() && !level().isClientSide){
+            //包围盒检测造成伤害
+            var entities=level().getEntities(this,this.getBoundingBox());
+            if(!entities.isEmpty()){
+                for (var e:entities) {
+                    if(canAttack(e))
+                        e.hurt(this.damageSources().mobAttack(this), (float) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                }
+            }
+        }
     }
 
-
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
-    }
-
-    @Override
-    public void onRemovedFromLevel() {
-        handLeft.discard();
-        handRight.discard();
-
-        super.onRemovedFromLevel();
-    }
-
-    //属性设置
-    public boolean isInWall(){
+    public boolean canAttack(Entity entity){
+        if(entity instanceof Player
+                || getTarget()!=null&&getTarget().is(entity))
+        {
+            return true;
+        }
         return false;
     }
 
+//boss条
     private final ServerBossEvent bossEvent = (ServerBossEvent)new ServerBossEvent(
             this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS
     ).setDarkenScreen(true);
-    @Override
+    @Override//boss条显示
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         this.bossEvent.addPlayer(player);
     }
 
-    @Override
+    @Override//boss条消失
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossEvent.removePlayer(player);
     }
-
-    @Override
+    @Override//boss条更新
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+    }
+    @Override//死亡时
+    public void onRemovedFromLevel() {
+        handLeft.discard();
+        handRight.discard();
+        super.onRemovedFromLevel();
+    }
+    @Override//取消墙体窒息伤害
+    public boolean isInWall(){
+        return false;
+    }
+    /*
+    @Override//远程攻击
     public void performRangedAttack(LivingEntity livingEntity, float v) {
         livingEntity.sendSystemMessage(Component.literal("range attack"));
     }
-
+*/
     @Override//是否免疫摔伤
     public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource damageSource) {
         return true;
@@ -300,7 +280,15 @@ public class kulouwang extends Monster implements GeoEntity , RangedAttackMob {
     public boolean displayFireAnimation() {
         return false;
     }
+    @Override//受伤音效
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         return SoundEvents.SKELETON_HURT;
+    }
+
+
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }
